@@ -50,7 +50,7 @@ export function List({ m, st }: ListProps) {
 
                 <div className='hidden md:flex flex-col gap-3 w-full'>
                     {
-                        m.list.map((l) => (
+                        m.list.map((l:{id:string;label:string}) => (
                             <div key={l.id} className='leading-5 text-base font-medium text-white md:leading-6'>
                                 {l.label}
                             </div>

@@ -9,32 +9,37 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useState } from "react";
 
-export interface ListProps {
-    m: m;
+
+
+interface subItem {
+    id: string;
+    label: string;
 }
+
 interface m {
     id: string;
     title: string;
-    list: subItem[];
+    list?: subItem[];   // ← optional, since "About Us"/"Gallery" have no list
 }
-interface subItem {
-    id: string;
-    label: string
+
+export interface ListProps {
+    m: m;                // ← reuse `m`, don't redeclare list as a single object
 }
+
 interface dropdownProps {
-    l: subItem[]
+    l?: subItem[];        // ← optional, matches `m.list`
 }
 function DropDown({ l }: dropdownProps) {
     const hasList = (l?.length ?? 0) > 0;
     return (
-        <div className={`min-h-0 w-full`}>
-            {l?.map((l: any) => (
-                <div key={l.id} className={`leading-5 text-base font-medium text-prim-btn`}>
-                    {l.label}
+        <div className="min-h-0 w-full">
+            {l?.map((item) => (
+                <div key={item.id} className="leading-5 text-base font-medium text-prim-btn">
+                    {item.label}
                 </div>
             ))}
         </div>
-    )
+    );
 }
 
 function List({ m }: ListProps) {
@@ -67,7 +72,7 @@ function List({ m }: ListProps) {
 function Header() {
     const [menuToggle, setMenuToggle] = useState(false);
     const [desktopMenuToggle, setDesktopMenuToggle] = useState(false);
-    const menu = [
+    const menu: m[] = [
         {
             id: '1', title: "Company", list: [
                 { id: "1", label: "Home A" },
@@ -79,14 +84,10 @@ function Header() {
                 { id: "7", label: "Contact C" },
             ]
         },
-        {
-            id: '2', title: "About Us"
-        },
-        {
-            id: '3', title: "Gallery"
-        },
-    ]
-    const dropdownMenu = [
+        { id: '2', title: "About Us" },
+        { id: '3', title: "Gallery" },
+    ];
+    const dropdownMenu: m[] = [
         {
             id: '1', title: "pages", list: [
                 { id: "1", label: "Home A" },
@@ -106,7 +107,7 @@ function Header() {
                 { id: "5", label: "Legal" },
             ]
         },
-    ]
+    ];
 
     const handleExpand = (id: string) => {
         if (id === '1')
@@ -153,7 +154,7 @@ function Header() {
 
 
                         <div className="">
-                            <Button bg="prim"/>
+                            <Button bg="prim" />
                         </div>
 
                     </nav>
@@ -219,13 +220,12 @@ function Header() {
 
                                 <div className="left flex w-1/2 gap-8">
                                     {dropdownMenu.map((l) => (
-
                                         <div key={l.id} className="flex flex-col flex-1 gap-3">
                                             <div className="leading-3 text-[10px] font-medium text-prim-btn">
                                                 {l.title.toUpperCase()}
                                             </div>
                                             <div className="flex flex-col gap-2">
-                                                {l.list.map((li) => (
+                                                {l.list?.map((li) => (
                                                     <div key={li.id} className="leading-6 text-base">{li.label}</div>
                                                 ))}
                                             </div>

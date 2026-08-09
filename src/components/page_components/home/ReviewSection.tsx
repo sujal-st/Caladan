@@ -24,10 +24,10 @@ export interface review {
 
 function ReviewCard({ r }: ReviewCardProps) {
     return (
-        <div className='card-container flex flex-col gap-3 w-full max-h-133 h-full min-w-98.25'>
+        <div className='card-container flex flex-col md:flex-row gap-3 w-full max-h-133 h-full min-w-98.25 md:max-h-120'>
 
             <div className='container-up p-5 bg-gray-100 rounded-lg w-full h-full flex flex-col gap-8'>
-                <div className='star-txt flex flex-col gap-6'>
+                <div className='star-txt flex flex-col justify-between gap-6 h-full flex-1'>
                     <div>
                         {Array.from({ length: 5 }).map((_, i) => (
                             <Fragment key={i}>
@@ -58,7 +58,7 @@ function ReviewCard({ r }: ReviewCardProps) {
             </div>
 
 
-            <div className='card-img-down w-full max-h-70 h-70 rounded-lg overflow-hidden'>
+            <div className='card-img-down w-full max-h-70 h-70 md:max-h-120 md:h-120 rounded-lg overflow-hidden'>
                 <img src={r.img} alt="" className='h-full w-full object-cover object-center' />
             </div>
         </div>
