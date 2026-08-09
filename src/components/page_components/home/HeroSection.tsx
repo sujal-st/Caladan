@@ -5,16 +5,16 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useRef, useState } from "react";
 function HeroSection() {
     const [toggle, setToggle] = useState(true);
-    const vidRef = useRef(null);
-    // if (vidRef.current === null) return;
+    const vidRef = useRef<HTMLVideoElement>(null);
+
     const handleVidTog = () => {
         if (!vidRef.current) return;
         if (toggle) {
-            vidRef.current?.pause();
+            vidRef.current.pause();
             setToggle(false)
         }
         else {
-            vidRef.current?.play();
+            vidRef.current.play();
             setToggle(true);
         }
     }

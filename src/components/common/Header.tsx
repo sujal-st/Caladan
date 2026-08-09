@@ -22,7 +22,7 @@ interface subItem {
     label: string
 }
 interface dropdownProps {
-    l: subItem
+    l: subItem[]
 }
 function DropDown({ l }: dropdownProps) {
     const hasList = (l?.length ?? 0) > 0;
@@ -187,7 +187,7 @@ function Header() {
                         <div className="flex items-center">
                             <div className="flex items-center gap-4">
                                 {menu.map((l) => (
-                                    <Link href='/' key={l.id} className="leading-7 text-sm font-medium cursor-pointer" onMouseOver={() => handleExpand(l.id)} onMouseLeave={handleCollapse} >
+                                    <Link href='/' key={l.id} className="leading-7 text-sm font-medium cursor-pointer" onMouseOver={() => handleExpand(l.id)} >
                                         <div className={`flex items-center ${desktopMenuToggle && l.id !== '1' ? 'opacity-40' : 'ded'} `} >
 
                                             {l.title}
