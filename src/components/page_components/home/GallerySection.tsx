@@ -26,7 +26,7 @@ function GallerySection() {
                     <div className='max-h-40 h-40 rounded-lg overflow-hidden self-end md:min-h-75'>
                         <img src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69aafdfd55a63aed167c4742_pexels-alohaphotostudio-6961666.avif" alt=""  className='h-full w-full object-cover'/>
                     </div>
-                    <div className='max-h-44 rounded-lg overflow-hidden md:min-h-88'>
+                    <div className='max-h-44 h-44 rounded-lg overflow-hidden md:min-h-88'>
                         <img src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69aeefb3fde379b25ebbe105_pexels-stijn-dijkstra-1306815-29989229.avif" alt="" className='object-cover h-full w-full object-center' />
                     </div>
                     <div  className='max-h-40 h-40 rounded-lg overflow-hidden self-end md:min-h-75'>
