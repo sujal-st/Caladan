@@ -19,7 +19,7 @@ function HeroSection() {
         }
     }
     return (
-        <section className="w-full p-3 md:h-screen lg:p-4 -mt-15">
+        <section className="w-full p-1 md:h-screen lg:p-4 -mt-15">
             <div className="rounded-2xl h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
                 <div className="relative overflow-hidden rounded-xl md:h-full ">
                     <div className="bg-prim-btn absolute z-10 h-full w-full opacity-70"></div>
@@ -28,7 +28,7 @@ function HeroSection() {
                         <source src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012%2F69b06b4bfbdb2da284a4ec5e_8440992-uhd_2732_1440_25fps_webm.webm" data-wf-ignore="true" />
                     </video>
 
-                    <div className="px-4 py-30 md:flex flex-col gap-6 md:p-8 md:pt-40 lg:gap-30 lg:max-w-[100%] mx-auto">
+                    <div className="px-4 py-30 md:flex flex-col gap-6 md:p-8 md:pt-35 lg:gap-30 lg:max-w-full mx-auto">
 
                         <div className="relative flex flex-col gap-6 items-center z-10 ">
                             <div className="flex flex-col gap-5 items-center">

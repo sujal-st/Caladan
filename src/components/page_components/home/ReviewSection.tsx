@@ -24,11 +24,11 @@ export interface review {
 
 function ReviewCard({ r }: ReviewCardProps) {
     return (
-        <div className='card-container flex flex-col md:flex-row gap-3 w-full max-h-133 h-full min-w-98.25 md:max-h-120'>
+        <div className='card-container flex flex-col md:flex-row gap-3 w-full max-h-133 h-full min-w-98.25 items-stretch md:max-h-none min-w-full lg:w-1/2 lg:min-w-1/2'>
 
-            <div className='container-up p-5 bg-gray-100 rounded-lg w-full h-full flex flex-col gap-8'>
-                <div className='star-txt flex flex-col justify-between gap-6 h-full flex-1'>
-                    <div>
+            <div className='container-up p-5 bg-gray-100 rounded-lg w-full h-full flex flex-col gap-8 md:h-120 overflow-hidden md:p-6'>
+                <div className='star-txt flex flex-col gap-6 h-full flex-1 md:gap-8'>
+                    <div className='flex items-center gap-1'>
                         {Array.from({ length: 5 }).map((_, i) => (
                             <Fragment key={i}>
                                 <StarIcon className='text-yellow-700! h-5!' />
@@ -38,19 +38,19 @@ function ReviewCard({ r }: ReviewCardProps) {
                     </div>
 
                     <div className='flex flex-col gap-1'>
-                        <div className='text-prim-btn leading-6 text-base font-semibold'>
+                        <div className='text-prim-btn leading-6 text-base font-semibold md:text-xl md:leading-7 md:font-medium'>
                             {r.review.title}
                         </div>
-                        <div className='leading-5 text-base text-prim-btn/60'>
+                        <div className='leading-5 text-base text-prim-btn/60 md:leading-6'>
                             {r.review.description}
                         </div>
                     </div>
                 </div>
                 <div className='card-name flex flex-col'>
-                    <div className='leading-5 text-base font-semibold text-prim-btn'>
+                    <div className='leading-5 text-base font-semibold text-prim-btn md:leading-6'>
                         {r.name}
                     </div>
-                    <div className='leading-5 text-base text-prim-btn/60'>
+                    <div className='leading-5 text-base text-prim-btn/60 md:leading-6'>
                         {r.profession}
                     </div>
 
@@ -58,7 +58,7 @@ function ReviewCard({ r }: ReviewCardProps) {
             </div>
 
 
-            <div className='card-img-down w-full max-h-70 h-70 md:max-h-120 md:h-120 rounded-lg overflow-hidden'>
+            <div className='card-img-down w-full max-h-70 md:max-h-none h-70 md:h-120 rounded-lg overflow-hidden'>
                 <img src={r.img} alt="" className='h-full w-full object-cover object-center' />
             </div>
         </div>
@@ -92,7 +92,7 @@ function ReviewSection() {
         },
     ]
 
-    const {slides}= usePagination(1,reviews);
+    const {slides}= usePagination(3,reviews);
     
     const handlePrev=()=>{
         // setSlide(prev=>prev-1);
@@ -101,7 +101,7 @@ function ReviewSection() {
         // setSlide(prev=>prev+1);
     }
     return (
-        <section className='py-12 px-4'>
+        <section className='pt-12 pb-6 px-4 md:pt-20 md:pb-8 md:px-8'>
             <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
                 <div className='container flex flex-col items-center'>
 
@@ -112,14 +112,14 @@ function ReviewSection() {
                             <HeadingText block1='Voices from' block2='the Overwater' />
                         </div>
                         <div>
-                            <p className='leading-5 text-base text-prim-btn/60 text-center'>
+                            <p className='leading-5 text-base text-prim-btn/60 text-center md:leading-6'>
                                 Hear from souls reborn above the reef. Families synced to ocean rhythms, solo travelers dissolving into tide-breath serenity.
                             </p>
                         </div>
                     </div>
 
                     {/* card */}
-                    <div className='flex overflow-hidden w-full mb-8'>
+                    <div className='flex overflow-hidden w-full mb-8 lg:overflow-auto lg:gap-4'>
                         {
                             slides.map((review:review) => (
                                 <ReviewCard key={review.id} r={review} />
