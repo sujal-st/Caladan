@@ -119,7 +119,7 @@ function Header() {
     return (
         <>
             <div className="hidden lg:flex fixed top-0 left-0 w-full z-30 bg-white h-4"></div>
-            <header className={`sticky top-4 min-[426px]:top-5 left-3.75 bg-white z-20 bg-hero-sec rounded-xl max-w-98 min-[426px]:max-w-157.5 md:max-w-182 lg:max-w-228 mx-auto lg:top-4 lg:rounded-b-xl lg:rounded-t-0 lg:rounded-t-none h-fit`}>
+            <header className={`sticky top-4 min-[426px]:top-5 left-3.75 bg-white z-20 bg-hero-sec rounded-xl max-w-98 min-[426px]:max-w-157.5 md:max-w-182 lg:max-w-228 mx-auto lg:top-4 lg:rounded-b-xl lg:rounded-t-0 lg:rounded-t-none h-fit shadow-2xl`}>
 
                 {/* mobile view */}
                 <div className="relative flex flex-col lg:hidden">
