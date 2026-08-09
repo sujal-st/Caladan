@@ -19,7 +19,7 @@ interface ResortCardProps{
 }
 function ResortCard({ resort }: ResortCardProps) {
     return (
-        <div className="resort-card flex flex-col gap-3 md:max-w-56.25 md:gap-4 lg:max-w-77.5">
+        <div className="resort-card flex flex-col gap-3 md:gap-4 lg:max-w-77.5">
 
             {/* img */}
             <div className="relative h-64 max-h-64 rounded-2xl overflow-hidden md:max-h-96 md:h-96">
@@ -90,7 +90,7 @@ function ReefSection() {
             <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
 
                 {/* title  */}
-                <div className="mb-12 flex flex-col gap-6 md:gap-8 md:mb-16">
+                <div className="mb-12 flex flex-col gap-6 md:gap-8 md:mb-16 lg:flex-row lg:items-end">
 
                     <div className="flex flex-col gap-5 md:gap-6">
                         <HeadingText block1="Reefside" block2="Sanctuaries" align='text-left' />
