@@ -10,8 +10,8 @@ function CTASection() {
 
                         <TitlePill label="Your Escape Awaits" />
                         <div>
-                            <h2 className="leading-10 text-[36px] whitespace-nowrap md:leading-13 md:text-[48px]">
-                                Last Rooms <span className="opacity-60"> This Month</span>
+                            <h2 className="leading-10 text-[36px] text-center md:leading-13 md:text-[48px]">
+                                Last Rooms<span className="opacity-60"> This Month</span>
                             </h2>
                         </div>
 

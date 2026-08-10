@@ -12,7 +12,7 @@ interface FAQDropdownProps {
         description: string
     }
 }
-function FAQDropdown({ li }: FAQDropdownProps) {
+export function FAQDropdown({ li }: FAQDropdownProps) {
     const [toggle, setToggle] = useState(false);
     return (
         <div className='bg-gray-100 p-4 rounded-sm md:p-5' onClick={()=>setToggle(prev=>!prev)}>
