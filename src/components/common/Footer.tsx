@@ -50,7 +50,7 @@ export function List({ m, st }: ListProps) {
 
                 <div className='hidden md:flex flex-col gap-3 w-full'>
                     {
-                        m.list.map((l:{id:string;label:string}) => (
+                        m.list.map((l: { id: string; label: string }) => (
                             <div key={l.id} className='leading-5 text-base font-medium text-white md:leading-6'>
                                 {l.label}
                             </div>
@@ -98,7 +98,7 @@ function Footer() {
         },
     ]
     return (
-        <footer className="w-full my-3 px-3.75">
+        <footer className="w-full p-3 md:p-4">
             <div className="py-8 rounded-2xl bg-[#071522] max-w-100 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto relative overflow-hidden md:py-12">
 
                 <div className="px-8 relative">
@@ -142,12 +142,11 @@ function Footer() {
                     </div>
 
                     {/* bot logo */}
-                    <div className='overflow-hidden flex md:justify-center w-full'>
+                    <div className='relative overflow-hidden flex md:justify-center w-full z-10'>
                         <img src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69837f6cef3b944eb4c4c54a_Caladan%E2%84%A2-light.svg" alt="" className='h-full w-full' />
                     </div>
                     <img src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/698394b9a5e52084acf76841_palm.svg" alt="" className='absolute z-0 -bottom-37.5 -right-25 scale-x-[-1] w-[320px] h-125 opacity-15 text-gray-800 pointer-events-none h-full' />
-                </div>
-                <div className='absolute bottom-0 blur-sm py-5 w-full'>
+                    <div className='absolute -bottom-8 inset-x-0 z-30 h-20 bg-linear-to-t from-[#071522] to-transparent' />
                 </div>
 
             </div>

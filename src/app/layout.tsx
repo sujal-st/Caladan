@@ -18,11 +18,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${interDisplay.variable} antialiased`}
     >
       <body className="relative">
-        <AppRouterCacheProvider>
-          <Header />
-          {children}
-          <Footer />
-        </AppRouterCacheProvider>
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            <AppRouterCacheProvider>
+              <Header />
+              {children}
+              <Footer />
+            </AppRouterCacheProvider>
+          </div>
+        </div>
         {/* <Script src="https://kit.fontawesome.com/419fbaad31.js" crossOrigin="anonymous" /> */}
       </body>
     </html>

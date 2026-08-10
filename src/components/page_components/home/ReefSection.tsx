@@ -1,9 +1,12 @@
+'use client'
 import Button from "@/components/common/Button";
 import HeadingText from "@/components/common/HeadingText";
 import TitlePill from "@/components/common/TitlePill";
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 
+import { gsap, useGSAP, ScrollTrigger } from '@/llib/gsap';
+import {useRef } from "react";
 
 interface resort {
     id: string;
@@ -14,18 +17,18 @@ interface resort {
     beds: number;
     guests: number
 }
-interface ResortCardProps{
-    resort:resort;
+interface ResortCardProps {
+    resort: resort;
 }
 function ResortCard({ resort }: ResortCardProps) {
     return (
-        <div className="resort-card flex flex-col gap-3 md:gap-4 lg:max-w-77.5">
+        <div className="resort-card flex flex-col gap-3 md:gap-4 lg:max-w-77.5" >
 
             {/* img */}
-            <div className="relative h-64 max-h-64 rounded-2xl overflow-hidden md:max-h-96 md:h-96">
-                <img src={resort.img} alt={resort.title} className="h-full w-full object-cover" />
+            <div className=" relative h-64 max-h-64 rounded-2xl overflow-hidden md:max-h-96 md:h-96">
+                <img src={resort.img} alt={resort.title} className="h-full w-full object-cover object-center resort-img-container" />
                 <div className="absolute top-5 left-5 z-11 md:top-6 md:left-6">
-                    <TitlePill label={resort.cat} type="card-label"/>
+                    <TitlePill label={resort.cat} type="card-label" />
                 </div>
                 <div className="w-full h-full bg-black/20 inset-0 absolute z-10"></div>
             </div>
@@ -41,11 +44,11 @@ function ResortCard({ resort }: ResortCardProps) {
                         {resort.size}
                     </div>
                     <div className="flex items-center gap-2 leading-5 text-base md:leading-6">
-                        <HotelOutlinedIcon className="h-6! w-6!"/>
+                        <HotelOutlinedIcon className="h-6! w-6!" />
                         {resort.beds} Beds
                     </div>
                     <div className="flex items-center gap-2 leading-5 text-base md:leading-6">
-                        <PeopleAltOutlinedIcon className="h-6! w-6!"/>
+                        <PeopleAltOutlinedIcon className="h-6! w-6!" />
                         {resort.guests} Guests
                     </div>
                 </div>
@@ -55,6 +58,8 @@ function ResortCard({ resort }: ResortCardProps) {
     )
 }
 function ReefSection() {
+    const sectionRef = useRef<HTMLElement>(null);
+
 
     const resorts: resort[] = [
         {
@@ -85,8 +90,22 @@ function ReefSection() {
             guests: 12,
         },
     ]
+
+    useGSAP(() => {
+        gsap.set('.resort-img-container',{scale:1.5})
+
+        gsap.to('.resort-img-container', {
+            yPercent: 15,
+            scrollTrigger: {
+                trigger: '.resort-card',
+                start: 'top bottom',
+                scrub: true,
+                markers: true
+            }
+        })
+    }, { scope: sectionRef })
     return (
-        <section className="py-12 px-4 md:py-20 md:px-8">
+        <section className="py-12 px-4 md:py-20 md:px-8" ref={sectionRef}>
             <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
 
                 {/* title  */}
@@ -105,7 +124,7 @@ function ReefSection() {
                 {/* resorts list */}
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-4">
                     {resorts.map((resort) => (
-                        <ResortCard key={resort.id} resort={resort}/>
+                        <ResortCard key={resort.id} resort={resort} />
                     ))
                     }
                 </div>
