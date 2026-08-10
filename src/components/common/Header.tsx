@@ -8,6 +8,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useState } from "react";
+import { Route } from "next";
 
 
 
@@ -19,15 +20,16 @@ interface subItem {
 interface m {
     id: string;
     title: string;
-    list?: subItem[];   // ← optional, since "About Us"/"Gallery" have no list
+    list?: subItem[];
+    href: Route
 }
 
 export interface ListProps {
-    m: m;                // ← reuse `m`, don't redeclare list as a single object
+    m: m;
 }
 
 interface dropdownProps {
-    l?: subItem[];        // ← optional, matches `m.list`
+    l?: subItem[];
 }
 function DropDown({ l }: dropdownProps) {
     const hasList = (l?.length ?? 0) > 0;
@@ -46,13 +48,13 @@ function List({ m }: ListProps) {
     const [toggle, setToggle] = useState(false);
 
     return (
-        <div className={`py-5 border-b border-gray-200 ${toggle ? 'h-fit' : 'h-15 overflow-hidden'}  transition-all duration-300`}>
+        <Link href={m.href} className={`py-5 border-b border-gray-200 ${toggle ? 'h-fit' : 'h-15 overflow-hidden'}  transition-all duration-300`}>
             <div className="flex flex-col">
                 <div className='flex justify-between items-center'>
                     <div className="text-prim-btn text-2xl leading-7">
                         {m.title}
                     </div>
-                    <button className="h-5 w-5 transition-all duration-300" onClick={() => { setToggle(prev => !prev); console.log(m.id) }}>
+                    <button className={`${m.id != '1' && 'hidden'} h-5 w-5 transition-all duration-300`} onClick={() => { setToggle(prev => !prev); console.log(m.id) }}>
                         {toggle ? (
                             <RemoveIcon className='h-full! w-full! text-black!' />
                         ) : (
@@ -62,11 +64,11 @@ function List({ m }: ListProps) {
 
                 </div>
 
-                <div className={`${toggle ? 'grid-rows-[1fr] opacity:100' : 'grid-rows-[0fr] opacity:0'} grid gap-2 transition-all duration-300 overflow-hidden w-full`}>
+                <div className={`${m.id != '1' && 'hidden'} ${toggle ? 'grid-rows-[1fr] opacity:100' : 'grid-rows-[0fr] opacity:0'} grid gap-2 transition-all duration-300 overflow-hidden w-full`}>
                     <DropDown l={m.list} />
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 function Header() {
@@ -74,7 +76,7 @@ function Header() {
     const [desktopMenuToggle, setDesktopMenuToggle] = useState(false);
     const menu: m[] = [
         {
-            id: '1', title: "Company", list: [
+            id: '1', title: "Company", href: '/', list: [
                 { id: "1", label: "Home A" },
                 { id: "2", label: "Home B" },
                 { id: "3", label: "Home C" },
@@ -84,12 +86,12 @@ function Header() {
                 { id: "7", label: "Contact C" },
             ]
         },
-        { id: '2', title: "About Us" },
-        { id: '3', title: "Gallery" },
+        { id: '2', title: "About Us", href: '/about' },
+        { id: '3', title: "Gallery", href: '/gallery' },
     ];
     const dropdownMenu: m[] = [
         {
-            id: '1', title: "pages", list: [
+            id: '1', title: "pages", href: '/', list: [
                 { id: "1", label: "Home A" },
                 { id: "2", label: "Home B" },
                 { id: "3", label: "Home C" },
@@ -99,7 +101,7 @@ function Header() {
             ]
         },
         {
-            id: '2', title: "other", list: [
+            id: '2', title: "other", href: '/', list: [
                 { id: "1", label: "Blog A" },
                 { id: "2", label: "Blog B" },
                 { id: "3", label: "Blog C" },
@@ -119,8 +121,8 @@ function Header() {
     return (
         <>
             <div className="hidden lg:flex fixed top-0 left-0 w-full z-30 bg-white h-4"></div>
-            <header className={`sticky top-4 min-[426px]:top-5 left-3.75 bg-white z-20 bg-hero-sec rounded-xl max-w-98 min-[426px]:max-w-157.5 md:max-w-182 lg:max-w-228 mx-auto lg:top-4 lg:rounded-b-xl lg:rounded-t-0 lg:rounded-t-none h-fit shadow-2xl`}>
-
+            {/* <header className={`fixed w-full mx-auto top-4 left-10% min-[426px]:top-5 min-[426px]:left-5 bg-white z-20 bg-hero-sec rounded-xl max-w-98 min-[426px]:max-w-157.5 md:max-w-182 lg:max-w-228 lg:top-4 lg:rounded-b-xl lg:rounded-t-0 lg:rounded-t-none h-fit shadow-2xl`}> */}
+            <header className={`fixed w-[calc(100%-2rem)] top-4 left-1/2 -translate-x-1/2 bg-white z-20 bg-hero-sec rounded-xl max-w-98 min-[426px]:max-w-157.5 md:max-w-182 lg:max-w-228 lg:top-4 lg:rounded-b-xl lg:rounded-t-0 lg:rounded-t-none h-fit shadow-2xl`}>
                 {/* mobile view */}
                 <div className="relative flex flex-col lg:hidden">
                     <nav className="px-5 py-2 min-[426px]:px-6 min-[426px]:py-3 flex items-center min-[426px]:justify-between gap-5 w-full">

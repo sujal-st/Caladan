@@ -3,7 +3,7 @@ import TitlePill from "@/components/common/TitlePill"
 
 function AboutMain() {
     return (
-        <section className="h-screen px-4 -mt-15 md:px-8">
+        <section className="h-screen px-4 md:px-8">
             <div className="relative h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto rounded-2xl overflow-hidden flex items-center">
 
                 <div className="flex flex-col items-center gap-6">

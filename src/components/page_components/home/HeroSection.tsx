@@ -3,9 +3,13 @@ import Button, { LightButton } from "@/components/common/Button"
 import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useRef, useState } from "react";
+import {gsap,useGSAP} from '@/llib/gsap'
+
 function HeroSection() {
     const [toggle, setToggle] = useState(true);
     const vidRef = useRef<HTMLVideoElement>(null);
+    const sectionRef=useRef<HTMLElement>(null);
+    const heroRef = useRef<HTMLDivElement>(null);
 
     const handleVidTog = () => {
         if (!vidRef.current) return;
@@ -18,8 +22,19 @@ function HeroSection() {
             setToggle(true);
         }
     }
+
+
+    useGSAP(()=>{
+        gsap.from(heroRef.current,{
+            filter: 'blur(10px)',
+            opacity:0,
+            ease: 'power1.out',
+            duration:0.8
+        })
+        // gsap.clear();
+    },{scope:sectionRef})
     return (
-        <section className="w-full p-1 md:h-screen lg:p-4 -mt-15">
+        <section className="w-full p-1 md:h-screen lg:p-4 " ref={sectionRef}>
             <div className="rounded-2xl h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
                 <div className="relative overflow-hidden rounded-xl md:h-full ">
                     <div className="bg-prim-btn absolute z-10 h-full w-full opacity-40"></div>
@@ -28,7 +43,7 @@ function HeroSection() {
                         <source src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012%2F69b06b4bfbdb2da284a4ec5e_8440992-uhd_2732_1440_25fps_webm.webm" data-wf-ignore="true" />
                     </video>
 
-                    <div className="px-4 py-30 md:flex flex-col gap-6 md:p-8 md:pt-35 lg:gap-30 lg:max-w-full mx-auto">
+                    <div className="px-4 py-30 md:flex flex-col gap-6 md:p-8 md:pt-35 lg:gap-30 lg:max-w-full mx-auto" ref={heroRef}>
 
                         <div className="relative flex flex-col gap-6 items-center z-10 ">
                             <div className="flex flex-col gap-5 items-center">
