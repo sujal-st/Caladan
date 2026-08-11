@@ -1,4 +1,6 @@
 import localFont from "next/font/local";
+import { IBM_Plex_Mono } from "next/font/google";
+
 
 export const interDisplay = localFont({
   src: [
@@ -9,7 +11,6 @@ export const interDisplay = localFont({
 });
 
 
-import { IBM_Plex_Mono } from "next/font/google";
 
 export const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],

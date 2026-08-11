@@ -98,7 +98,7 @@ function Footer() {
         },
     ]
     return (
-        <footer className="w-full p-3 md:p-4">
+        <footer className={`${plexMono.variable} w-full p-3 md:p-4`}>
             <div className="py-8 rounded-2xl bg-[#071522] max-w-100 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto relative overflow-hidden md:py-12">
 
                 <div className="px-4 md:px-8 relative">
