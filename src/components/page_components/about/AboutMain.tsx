@@ -1,10 +1,21 @@
-import HeadingText from "@/components/common/HeadingText"
+'use client';
 import TitlePill from "@/components/common/TitlePill"
+import { useTitleAnimation } from "@/llib/useTitleAnimation";
+import { useRef } from "react";
+
 
 function AboutMain() {
+    const sectionRef=useRef<HTMLElement|null>(null);
+    const titleRef=useRef<HTMLDivElement|null>(null);
+
+
+    useTitleAnimation(titleRef,'.container',sectionRef);
+
+    
+
     return (
-        <section className="h-screen px-4 md:px-8">
-            <div className="relative h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto rounded-2xl overflow-hidden flex items-center">
+        <section className="h-screen px-4 md:px-8" ref={sectionRef}>
+            <div className="relative h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto rounded-2xl overflow-hidden flex items-center contianer" ref={titleRef}>
 
                 <div className="flex flex-col items-center gap-6">
                     <TitlePill label="tahiti's hidden pulse" />

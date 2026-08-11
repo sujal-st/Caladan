@@ -5,8 +5,9 @@ import StarIcon from '@mui/icons-material/Star';
 import { Fragment } from 'react/jsx-runtime';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { useState } from 'react';
 import { usePagination } from '@/llib/usePagination';
+import { useRef } from 'react';
+import { useTitleAnimation } from '@/llib/useTitleAnimation';
 
 interface ReviewCardProps {
     r: review
@@ -65,9 +66,11 @@ function ReviewCard({ r }: ReviewCardProps) {
     )
 }
 function ReviewSection() {
+    const sectionRef= useRef<HTMLElement|null>(null);
+    const titleRef= useRef<HTMLDivElement|null>(null);
     
 
-
+    useTitleAnimation(titleRef,'.container',sectionRef);
     const reviews = [
         {
             id: '1', name: 'Daniel Novak', profession: 'Adventure Seeker', review: {
@@ -101,12 +104,12 @@ function ReviewSection() {
         // setSlide(prev=>prev+1);
     }
     return (
-        <section className='pt-12 pb-6 px-4 md:pt-20 md:pb-8 md:px-8'>
+        <section className='pt-12 pb-6 px-4 md:pt-20 md:pb-8 md:px-8' ref={sectionRef}>
             <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
                 <div className='container flex flex-col items-center'>
 
 
-                    <div className='flex flex-col items-center w-full gap-6 mb-12'>
+                    <div className='flex flex-col items-center w-full gap-6 mb-12 container' ref={titleRef}>
                         <div className="flex flex-col items-center gap-5">
                             <TitlePill label='guest voices echo' />
                             <HeadingText block1='Voices from' block2='the Overwater' />

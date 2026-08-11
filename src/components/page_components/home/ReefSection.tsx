@@ -7,6 +7,7 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 
 import { gsap, useGSAP, ScrollTrigger } from '@/llib/gsap';
 import {useRef } from "react";
+import { useTitleAnimation } from "@/llib/useTitleAnimation";
 
 interface resort {
     id: string;
@@ -58,7 +59,8 @@ function ResortCard({ resort }: ResortCardProps) {
     )
 }
 function ReefSection() {
-    const sectionRef = useRef<HTMLElement>(null);
+    const sectionRef = useRef<HTMLElement|null>(null);
+    const titleRef= useRef<HTMLDivElement|null>(null);
 
 
     const resorts: resort[] = [
@@ -91,6 +93,7 @@ function ReefSection() {
         },
     ]
 
+    useTitleAnimation(titleRef,'.container',sectionRef);
     useGSAP(() => {
         gsap.set('.resort-img-container',{scale:1.5})
 
@@ -100,7 +103,6 @@ function ReefSection() {
                 trigger: '.resort-card',
                 start: 'top bottom',
                 scrub: true,
-                markers: true
             }
         })
     }, { scope: sectionRef })
@@ -109,7 +111,7 @@ function ReefSection() {
             <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
 
                 {/* title  */}
-                <div className="mb-12 flex flex-col gap-6 md:gap-8 md:mb-16 lg:flex-row lg:items-end">
+                <div className="mb-12 flex flex-col gap-6 md:gap-8 md:mb-16 lg:flex-row lg:items-end container" ref={titleRef}>
 
                     <div className="flex flex-col gap-5 md:gap-6">
                         <HeadingText block1="Reefside" block2="Sanctuaries" align='text-left' />

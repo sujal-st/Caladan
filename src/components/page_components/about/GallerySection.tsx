@@ -1,4 +1,8 @@
+'use client'
 import HeadingText from "@/components/common/HeadingText"
+import {gsap,useGSAP,ScrollTrigger} from "@/llib/gsap";
+import { useTitleAnimation } from "@/llib/useTitleAnimation";
+import { useRef } from "react";
 
 interface gallery {
     id: string;
@@ -8,6 +12,9 @@ interface gallery {
 }
 
 function GallerySection() {
+    const sectionRef=useRef<HTMLElement|null>(null);
+    const titleRef=useRef<HTMLDivElement|null>(null);
+
     const gallery: gallery[] = [
         {
             id: '1',
@@ -34,12 +41,25 @@ function GallerySection() {
             img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69ab18266528877c8c6e8da3_Stylish%20Beach%20Portrait.avif'
         },
     ]
+
+    useTitleAnimation(titleRef,".container",sectionRef)
+    useGSAP(()=>{
+        gsap.set('img',{scale:1.4})
+        gsap.to('img',{
+            yPercent:15,
+            scrollTrigger:{
+                trigger:'img',
+                start:'top bottom',
+                scrub:1
+            }
+        })
+    },{scope:sectionRef})
     return (
-        <section className="px-4 pt-16 pb-6 md:pt-30 md:pb-8 md:px-8">
+        <section className="px-4 pt-16 pb-6 md:pt-30 md:pb-8 md:px-8" ref={sectionRef}>
             <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto rounded-2xl overflow-hidden">
 
                 {/* title */}
-                <div className="mb-12">
+                <div className="mb-12 contianer" ref={titleRef}>
                     <HeadingText block1="Meet the" block2="Caladan Founders" align="text-left" />
                 </div>
 

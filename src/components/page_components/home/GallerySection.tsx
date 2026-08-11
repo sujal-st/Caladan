@@ -2,6 +2,7 @@
 import HeadingText from '@/components/common/HeadingText'
 import TitlePill from '@/components/common/TitlePill'
 import { gsap, useGSAP, ScrollTrigger } from '@/llib/gsap';
+import { useTitleAnimation } from '@/llib/useTitleAnimation';
 import { useRef } from 'react';
 
 
@@ -9,15 +10,10 @@ function GallerySection() {
     const sectionRef = useRef<HTMLElement>(null);
     const titleRef= useRef<HTMLDivElement>(null);
 
+
+    useTitleAnimation(titleRef,'.container',sectionRef);
     useGSAP(() => {
         gsap.set('img',{scale:1.15});
-        gsap.from(titleRef.current,{
-            filter: 'blur(10px)',
-            opacity:0,
-            ease: 'power1.out',
-            duration:0.8
-        })
-
         gsap.to('img',{
             yPercent: 8,
             scrollTrigger: {

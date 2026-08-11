@@ -3,13 +3,13 @@ import Button, { LightButton } from "@/components/common/Button"
 import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useRef, useState } from "react";
-import {gsap,useGSAP} from '@/llib/gsap'
+import { useTitleAnimation } from "@/llib/useTitleAnimation";
 
 function HeroSection() {
     const [toggle, setToggle] = useState(true);
     const vidRef = useRef<HTMLVideoElement>(null);
-    const sectionRef=useRef<HTMLElement>(null);
-    const heroRef = useRef<HTMLDivElement>(null);
+    const sectionRef=useRef<HTMLElement|null>(null);
+    const heroRef = useRef<HTMLDivElement|null>(null);
 
     const handleVidTog = () => {
         if (!vidRef.current) return;
@@ -24,18 +24,11 @@ function HeroSection() {
     }
 
 
-    useGSAP(()=>{
-        gsap.from(heroRef.current,{
-            filter: 'blur(10px)',
-            opacity:0,
-            ease: 'power1.out',
-            duration:0.8
-        })
-        // gsap.clear();
-    },{scope:sectionRef})
+    
+    useTitleAnimation(heroRef,'.container',sectionRef)
     return (
         <section className="w-full p-1 md:h-screen lg:p-4 " ref={sectionRef}>
-            <div className="rounded-2xl h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
+            <div className="rounded-2xl h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto container">
                 <div className="relative overflow-hidden rounded-xl md:h-full ">
                     <div className="bg-prim-btn absolute z-10 h-full w-full opacity-40"></div>
                     <video id="532ef140-c6a2-edd2-7d75-66929c4acf39-video" loop muted autoPlay className="absolute z-0 h-full w-full object-cover object-center rounded-xl" ref={vidRef}>
