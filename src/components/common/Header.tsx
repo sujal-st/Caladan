@@ -211,8 +211,9 @@ function Header() {
                             <div className="whitespace-nowrap text-sm leading-6 font-medium underline underline-offset-4">
                                 View Resorts
                             </div>
-
-                            <Button label="Book Now" bg="prim" />
+                            <Link href='/book-inquiry'>
+                                <Button label="Book Now" bg="prim" />
+                            </Link>
                         </div>
                     </div>
                     {/* dropdown */}

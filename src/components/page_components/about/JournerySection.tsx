@@ -55,7 +55,7 @@ function JournerySection() {
                     }
                 }
             )
-            const bullets = gsap.utils.toArray('.circle-fill');
+            const bullets = gsap.utils.toArray<HTMLElement>('.circle-fill');
 
             bullets.forEach((bullet) => {
                 gsap.set(bullet, { scale: 0 });
@@ -91,7 +91,7 @@ function JournerySection() {
             )
 
 
-            const bullets= gsap.utils.toArray('.circle-fill');
+            const bullets= gsap.utils.toArray<HTMLElement>('.circle-fill');
             
             bullets.forEach((bullet)=>{
 
