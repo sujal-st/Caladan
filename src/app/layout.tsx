@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { interDisplay } from "@/llib/font";
+import { interDisplay,plexMono } from "@/llib/font";
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Header from "@/components/common/Header";
@@ -15,18 +15,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${interDisplay.variable} antialiased`}
+      className={`${interDisplay.variable} ${interDisplay.className} ${plexMono.variable} antialiased`}
     >
       <body className="relative">
-        <div id="smooth-wrapper">
-          <div id="smooth-content">
+        {/* <div id="smooth-wrapper"> */}
+          {/* <div id="smooth-content"> */}
             <AppRouterCacheProvider>
               <Header />
               {children}
               <Footer />
             </AppRouterCacheProvider>
-          </div>
-        </div>
+          {/* </div> */}
+        {/* </div> */}
         {/* <Script src="https://kit.fontawesome.com/419fbaad31.js" crossOrigin="anonymous" /> */}
       </body>
     </html>

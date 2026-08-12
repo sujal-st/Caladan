@@ -4,11 +4,14 @@ import HeadingText from "@/components/common/HeadingText";
 import TitlePill from "@/components/common/TitlePill";
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import { resorts } from "@/components/constants/data";
 
 import { gsap, useGSAP, ScrollTrigger } from '@/llib/gsap';
-import {useRef } from "react";
+import { useRef } from "react";
+import { useTitleAnimation } from "@/llib/useTitleAnimation";
+import Link from "next/link";
 
-interface resort {
+export interface resort {
     id: string;
     img: string;
     title: string;
@@ -17,10 +20,10 @@ interface resort {
     beds: number;
     guests: number
 }
-interface ResortCardProps {
+export interface ResortCardProps {
     resort: resort;
 }
-function ResortCard({ resort }: ResortCardProps) {
+export function ResortCard({ resort }: ResortCardProps) {
     return (
         <div className="resort-card flex flex-col gap-3 md:gap-4 lg:max-w-77.5" >
 
@@ -58,41 +61,13 @@ function ResortCard({ resort }: ResortCardProps) {
     )
 }
 function ReefSection() {
-    const sectionRef = useRef<HTMLElement>(null);
+    const sectionRef = useRef<HTMLElement | null>(null);
+    const titleRef = useRef<HTMLDivElement | null>(null);
 
 
-    const resorts: resort[] = [
-        {
-            id: '1',
-            img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e87302b/69b049a16076b1b2188d012d_rumman-amin-s3o2rkTkF7I-unsplash.avif',
-            title: 'Lagoon Harmony Bungalow',
-            cat: 'Overwater Bungalow',
-            size: '90 ft2',
-            beds: 2,
-            guests: 6,
-        },
-        {
-            id: '2',
-            img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e87302b/69b037b7b9f0bc0f27d8889d_dinuka-lankaloka-HKr5cn6S0q0-unsplash.avif',
-            title: 'Coral Breath Studio',
-            cat: 'Overwater Studio',
-            size: '156 ft2',
-            beds: 2,
-            guests: 4,
-        },
-        {
-            id: '3',
-            img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e87302b/69b03783cb355b95794c522e_pexels-roman-odintsov-5667901.avif',
-            title: 'Tide Song Villa',
-            cat: 'Overwater Villa',
-            size: '320 ft2',
-            beds: 4,
-            guests: 12,
-        },
-    ]
-
+    useTitleAnimation(titleRef, '.container', sectionRef);
     useGSAP(() => {
-        gsap.set('.resort-img-container',{scale:1.5})
+        gsap.set('.resort-img-container', { scale: 1.5 })
 
         gsap.to('.resort-img-container', {
             yPercent: 15,
@@ -100,7 +75,6 @@ function ReefSection() {
                 trigger: '.resort-card',
                 start: 'top bottom',
                 scrub: true,
-                markers: true
             }
         })
     }, { scope: sectionRef })
@@ -109,7 +83,7 @@ function ReefSection() {
             <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
 
                 {/* title  */}
-                <div className="mb-12 flex flex-col gap-6 md:gap-8 md:mb-16 lg:flex-row lg:items-end">
+                <div className="mb-12 flex flex-col gap-6 md:gap-8 md:mb-16 lg:flex-row lg:items-end container" ref={titleRef}>
 
                     <div className="flex flex-col gap-5 md:gap-6">
                         <HeadingText block1="Reefside" block2="Sanctuaries" align='text-left' />
@@ -117,7 +91,9 @@ function ReefSection() {
                             <p>Glass floors pulse with parrotfish dawn colors. Private decks sip Tahiti's tides. Discover our floating havens where lagoon rhythms compose your perfect wellness escape.</p>
                         </div>
                     </div>
-                    <Button label="See All Resorts" bg="sec" />
+                    <Link href='/resorts'>
+                        <Button label="See All Resorts" bg="sec" />
+                    </Link>
                 </div>
 
 
@@ -125,7 +101,7 @@ function ReefSection() {
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-4">
                     {resorts.map((resort) => (
                         <ResortCard key={resort.id} resort={resort} />
-                    ))
+                    )).slice(0, 3)
                     }
                 </div>
             </div>

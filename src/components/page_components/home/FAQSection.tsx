@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import HeadingText from '@/components/common/HeadingText'
 import TitlePill from '@/components/common/TitlePill';
 import AddIcon from '@mui/icons-material/Add';
+import {useGSAP,gsap} from '@/llib/gsap';
 
 
 interface FAQDropdownProps {
@@ -15,7 +16,7 @@ interface FAQDropdownProps {
 export function FAQDropdown({ li }: FAQDropdownProps) {
     const [toggle, setToggle] = useState(false);
     return (
-        <div className='bg-gray-100 p-4 rounded-sm md:p-5' onClick={()=>setToggle(prev=>!prev)}>
+        <div className='bg-gray-100 p-4 rounded-sm md:p-5 faq-grid' onClick={()=>setToggle(prev=>!prev)}>
             <div key={li.id} className=' flex justify-between gap-6 items-center '>
                 <div className='leading-5 text-prim-btn text-base font-medium'>
                     {li.title}
@@ -75,6 +76,13 @@ function FAQSection() {
     ]
 
     
+    useGSAP(()=>{
+        gsap.from('.faq-grid',{
+            opacity:0,
+            ease: 'power1.out',
+            delay:0.1
+        })
+    },[tabSwitch])
     return (
         <section className='py-20 p-3 md:px-8'>
             <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto rounded-2xl overflow-hidden">
