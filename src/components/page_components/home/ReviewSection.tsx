@@ -14,7 +14,7 @@ import type { review } from '@/components/constants/types';
 
 function ReviewCard({ r }: ReviewCardProps) {
     return (
-        <div className='card-container flex flex-col md:flex-row gap-3 w-full max-h-133 h-full min-w-98.25 items-stretch md:max-h-none min-w-full lg:w-1/2 lg:min-w-1/2'>
+        <div className='card-container flex flex-col md:flex-row gap-3 w-full max-h-133 h-full min-w-98.25 items-stretch md:max-h-none lg:w-1/2 lg:min-w-1/2'>
 
             <div className='container-up p-5 bg-gray-100 rounded-lg w-full h-full flex flex-col gap-8 md:h-120 overflow-hidden md:p-6'>
                 <div className='star-txt flex flex-col gap-6 h-full flex-1 md:gap-8'>
@@ -71,7 +71,7 @@ function ReviewSection() {
     }
     return (
         <section className='pt-12 pb-6 px-4 md:pt-20 md:pb-8 md:px-8' ref={sectionRef}>
-            <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 xl:max-w-[1800px] mx-auto">
+            <div className="h-full max-w-110 md:min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 xl:max-w-[1800px] mx-auto">
                 <div className='container flex flex-col items-center w-full mx-auto'>
 
 
@@ -88,10 +88,9 @@ function ReviewSection() {
                     </div>
 
                     {/* card */}
-                    <div className='relative'>
-
+                    <div className='relative w-full'>
                         <div className='absolute left-0 inset-0 bg-linear-to-r from-white to-transparent w-50 z-2' />
-                        <div className='flex w-full snap-x snap-mandatory scroll-smooth scrollbar-none mb-8 overflow-x-auto xl:overflow-x-auto lg:gap-3' ref={scrollRef}>
+                        <div className='flex items-center gap-2 w-full snap-x snap-mandatory scroll-smooth scrollbar-none mb-8 overflow-x-auto xl:overflow-x-auto lg:gap-3' ref={scrollRef}>
                             {
                                 reviews.map((review: review) => (
                                     <ReviewCard key={review.id} r={review} />
