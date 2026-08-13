@@ -5,7 +5,6 @@ import StarIcon from '@mui/icons-material/Star';
 import { Fragment } from 'react/jsx-runtime';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { usePagination } from '@/llib/usePagination';
 import { useRef } from 'react';
 import { useTitleAnimation } from '@/llib/useTitleAnimation';
 import { reviews } from '@/components/constants/data';
@@ -63,7 +62,6 @@ function ReviewSection() {
 
     useTitleAnimation(titleRef, '.container', sectionRef);
 
-    const { slides } = usePagination(3, reviews);
 
     const handlePrev = () => {
         scrollRef.current?.scrollBy({ left: -scrollRef.current.clientWidth, behavior: 'smooth' });
@@ -95,7 +93,7 @@ function ReviewSection() {
                         <div className='absolute left-0 inset-0 bg-linear-to-r from-white to-transparent w-50 z-2' />
                         <div className='flex w-full snap-x snap-mandatory scroll-smooth scrollbar-none mb-8 overflow-x-auto xl:overflow-x-auto lg:gap-3' ref={scrollRef}>
                             {
-                                slides.map((review: review) => (
+                                reviews.map((review: review) => (
                                     <ReviewCard key={review.id} r={review} />
                                 ))
                             }
