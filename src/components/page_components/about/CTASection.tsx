@@ -3,6 +3,7 @@ import Button, { LightButton } from "@/components/common/Button"
 import { useTitleAnimation } from "@/llib/useTitleAnimation";
 import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import Link from "next/link";
 import { useRef, useState } from "react";
 
 function CTASection() {
@@ -23,7 +24,7 @@ function CTASection() {
         }
     }
 
-    useTitleAnimation(titleRef,'.container',sectionRef)
+    useTitleAnimation(titleRef, '.container', sectionRef)
     return (
         <section className="w-full px-3 md:px-4 md:py-8" ref={sectionRef}>
             <div className="rounded-2xl h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto container">
@@ -52,8 +53,12 @@ function CTASection() {
                             </div>
 
                             <div className="flex items-center gap-2">
-                                <LightButton label="Reserve Now" />
-                                <Button label="See All Rooms" bg='bg-white/10 text-white border border-gray-50/10' />
+                                <Link href='/book-inquiry'>
+                                    <LightButton label="Reserve Now" />
+                                </Link>
+                                <Link href='/resorts'>
+                                    <Button label="See All Rooms" bg='bg-white/10 text-white border border-gray-50/10' />
+                                </Link>
                             </div>
                         </div>
                     </div>

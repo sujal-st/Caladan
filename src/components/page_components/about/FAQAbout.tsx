@@ -34,7 +34,7 @@ function FAQAbout() {
                 </div>
 
                 {/* tabs */}
-                <div className='flex flex-col gap-3 md:gap-4'>
+                <div className='flex flex-col gap-3 md:gap-4 min-[1200px]:max-w-225 mx-auto'>
                     {list.map((li) => (
 
                         <FAQDropdown key={li.id} li={li} />

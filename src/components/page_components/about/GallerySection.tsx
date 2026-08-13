@@ -1,6 +1,7 @@
 'use client'
-import HeadingText from "@/components/common/HeadingText"
-import {gsap,useGSAP,ScrollTrigger} from "@/llib/gsap";
+import HeadingText from "@/components/common/HeadingText";
+import Image from "next/image";
+import {gsap,useGSAP} from "@/llib/gsap";
 import { useTitleAnimation } from "@/llib/useTitleAnimation";
 import { useRef } from "react";
 
@@ -67,10 +68,10 @@ function GallerySection() {
                 <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
                     {gallery.map((card) => (
                         <div key={card.id} className="relative gallery-card max-h-72 rounded-lg overflow-hidden md:max-h-108 lg:min-h-128 lg:min-w-45" >
-                            <img src={card.img} alt="" className="h-full w-full object-cover"/>
+                            <Image src={card.img} alt="img" fill className="h-full w-full object-cover z-0"/>
 
-                            <div className="absolute inset-0 bg-linear-to-t from-prim-btn/60 to-prim-btn/10 md:from-prim-btn/20 md:to-prim-btn/0"></div>
-                            <div className="absolute bottom-5 left-5 text-white">
+                            <div className="absolute bottom-0 bg-linear-to-t from-prim-btn to-transparent z-1 h-50 w-full md:from-prim-btn md:to-prim-btn/0"></div>
+                            <div className="absolute bottom-5 left-5 text-white z-2">
                                 <div className="text-base font-medium leading-5 md:leading-6">{card.title}</div>
                                 <div className="text-white/50 text-base leading-4">{card.role}</div>
                             </div>

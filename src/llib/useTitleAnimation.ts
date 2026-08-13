@@ -6,6 +6,7 @@ export function useTitleAnimation(selector:RefObject<HTMLDivElement|null>,trigge
 
     useGSAP(()=>{
         if(selector===null) return
+        if(trigger===null) return
         gsap.from(selector.current,{
             filter: 'blur(10px)',
             opacity:0,

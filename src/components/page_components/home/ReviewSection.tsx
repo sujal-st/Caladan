@@ -5,23 +5,12 @@ import StarIcon from '@mui/icons-material/Star';
 import { Fragment } from 'react/jsx-runtime';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { usePagination } from '@/llib/usePagination';
 import { useRef } from 'react';
 import { useTitleAnimation } from '@/llib/useTitleAnimation';
+import { reviews } from '@/components/constants/data';
+import type { ReviewCardProps } from '@/components/constants/types';
+import type { review } from '@/components/constants/types';
 
-interface ReviewCardProps {
-    r: review
-}
-export interface review {
-    id: string;
-    name: string;
-    profession: string;
-    review: {
-        title: string;
-        description: string
-    };
-    img: string
-}
 
 function ReviewCard({ r }: ReviewCardProps) {
     return (
@@ -66,47 +55,24 @@ function ReviewCard({ r }: ReviewCardProps) {
     )
 }
 function ReviewSection() {
-    const sectionRef= useRef<HTMLElement|null>(null);
-    const titleRef= useRef<HTMLDivElement|null>(null);
-    
+    const sectionRef = useRef<HTMLElement | null>(null);
+    const titleRef = useRef<HTMLDivElement | null>(null);
+    const scrollRef = useRef<HTMLDivElement | null>(null);
 
-    useTitleAnimation(titleRef,'.container',sectionRef);
-    const reviews = [
-        {
-            id: '1', name: 'Daniel Novak', profession: 'Adventure Seeker', review: {
-                title: 'The lagoon reset we needed',
-                description: "Our family actually unplugged here. The kids loved the sound bath and we all left lighter, calmer, and more connected than we've felt in years."
-            },
-            img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69ac6f71e2f6cf6c0843aa68_pexels-julia-volk-7292958.avif'
-        },
-        {
-            id: '2', name: 'Lea Martinez', profession: 'Family Traveler', review: {
-                title: 'Finally, wellness that feels natural',
-                description: "Caladan is pure paradise. Every sunrise felt like a painting, and the staff made us feel at home from the first moment."
-            },
-            img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69ac691927961ac98c560fe2_pexels-stephanlouis-19119918.avif'
-        },
-        {
-            id: '3', name: 'Hana Saito', profession: 'Solo Retreat Guest', review: {
-                title: 'A sanctuary above the reef',
-                description: "I arrived exhausted and left renewed. The lomilomi massage and sunrise sessions over the lagoon helped me release stress I'd carried for months."
-            },
-            img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69ac6f718869ff1791ce4e94_pexels-aymannouas-12935961.avif'
-        },
-    ]
 
-    const {slides}= usePagination(3,reviews);
-    
-    const handlePrev=()=>{
-        // setSlide(prev=>prev-1);
+    useTitleAnimation(titleRef, '.container', sectionRef);
+
+
+    const handlePrev = () => {
+        scrollRef.current?.scrollBy({ left: -scrollRef.current.clientWidth, behavior: 'smooth' });
     }
-    const handleNext=()=>{
-        // setSlide(prev=>prev+1);
+    const handleNext = () => {
+        scrollRef.current?.scrollBy({ left: scrollRef.current.clientWidth, behavior: 'smooth' })
     }
     return (
         <section className='pt-12 pb-6 px-4 md:pt-20 md:pb-8 md:px-8' ref={sectionRef}>
-            <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
-                <div className='container flex flex-col items-center'>
+            <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 xl:max-w-[1800px] mx-auto">
+                <div className='container flex flex-col items-center w-full mx-auto'>
 
 
                     <div className='flex flex-col items-center w-full gap-6 mb-12 container' ref={titleRef}>
@@ -122,21 +88,27 @@ function ReviewSection() {
                     </div>
 
                     {/* card */}
-                    <div className='flex overflow-hidden w-full mb-8 lg:overflow-auto lg:gap-4'>
-                        {
-                            slides.map((review:review) => (
-                                <ReviewCard key={review.id} r={review} />
-                            ))
-                        }
+                    <div className='relative'>
+
+                        <div className='absolute left-0 inset-0 bg-linear-to-r from-white to-transparent w-50 z-2' />
+                        <div className='flex w-full snap-x snap-mandatory scroll-smooth scrollbar-none mb-8 overflow-x-auto xl:overflow-x-auto lg:gap-3' ref={scrollRef}>
+                            {
+                                reviews.map((review: review) => (
+                                    <ReviewCard key={review.id} r={review} />
+                                ))
+                            }
+                        </div>
+                        {/* <div className='absolute right-0 inset-0 bg-linear-to-l from-white to-transparent w-50 z-2'/> */}
                     </div>
+
 
                     {/* slider button */}
                     <div className='flex gap-2'>
-                        <button className='rounded-full p-2 bg-prim-btn' onClick={handlePrev}>
-                            <ArrowBackIcon className='text-white!'/>
+                        <button className='rounded-full p-2 bg-prim-btn cursor-pointer' onClick={handlePrev}>
+                            <ArrowBackIcon className='text-white!' />
                         </button>
-                        <button className='rounded-full p-2 bg-gray-200' onClick={handleNext}>
-                            <ArrowForwardIcon/>
+                        <button className='rounded-full p-2 bg-gray-200 hover:bg-prim-btn duration-300 transition-colors cursor-pointer' onClick={handleNext}>
+                            <ArrowForwardIcon className='hover:text-white! duration-300! transition-colors!' />
                         </button>
                     </div>
 
