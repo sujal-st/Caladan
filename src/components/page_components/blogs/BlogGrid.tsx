@@ -2,8 +2,9 @@ import TitlePill from '@/components/common/TitlePill';
 import Image from 'next/image';
 import { blogs } from '@/components/constants/data';
 import type { blog } from '@/components/constants/types';
+import Link from 'next/link';
 
-type BlogCardProps = {
+export type BlogCardProps = {
     blog: blog
 }
 
@@ -28,7 +29,7 @@ function BlogCard({ blog }: BlogCardProps) {
                 </div>
             </div>
 
-            <div className='underline leading-5 text-[13px] font-medium text-sm'>Ckeck Article</div>
+            <Link href={`/blogs/${blog.slug}`} className='underline leading-5 text-[13px] font-medium text-sm'>Ckeck Article</Link>
         </div>
     )
 }

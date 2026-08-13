@@ -51,7 +51,6 @@ function JournerySection() {
                         start: 'top center',
                         end: "bottom center",
                         scrub: 1,
-                        // markers: true
                     }
                 }
             )
@@ -129,7 +128,7 @@ function JournerySection() {
                         className="z-10 bg-[#0f4c81]/10 w-0.75 justify-self-center relative line-track-mobile"
                         style={{ gridColumn: 1, gridRow: `1 / ${timeline.length + 1}` }}
                     >
-                        <div className="line-fill-mobile absolute top-0 left-0 w-full h-full bg-[#0b1f33] origin-top scale-y-0">
+                        <div className="line-fill-mobile rounded-full absolute top-0 left-0 w-full h-full bg-[#0b1f33] origin-top scale-y-0">
                         </div>
                     </div>
 
@@ -169,7 +168,7 @@ function JournerySection() {
                     {timeline.map((t, i) => (
                         <Fragment key={t.id}>
                             <div className="w-4 h-4 bg-[#0b1f33]/50 rounded-full overflow-hidden col-start-1 justify-self-center mt-4 circle-container relative" style={{ gridColumn: 2, gridRow: i + 1 }}>
-                                <div className="bg-[#0b1f33] absolute h-full w-full circle-fill"></div>
+                                <div className="bg-[#0b1f33] rounded-full absolute h-full w-full circle-fill"></div>
                             </div>
 
                             <div className={`${t.id === '1' && 'col-start-3 row-start-1'}${t.id === '2' && 'col-start-1 row-start-2'} ${t.id === '3' && 'col-start-3 row-start-3'} ${t.id === '4' && 'col-start-1 row-start-4'}`}>

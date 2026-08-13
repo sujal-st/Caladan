@@ -12,7 +12,7 @@ function Form() {
     return (
         <section className='pt-24 pb-16 px-4 md:pt-40 md:pb-30 md:px-8' ref={sectionRef}>
 
-            <div className='container'>
+            <div className='container mx-auto'>
                 {/* title */}
                 <div className='flex flex-col items-center gap-6 mb-12'>
                     <div className='flex flex-col items-center gap-5'>

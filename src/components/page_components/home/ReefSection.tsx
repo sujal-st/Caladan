@@ -6,8 +6,9 @@ import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import { resorts } from "@/components/constants/data";
 import Link from "next/link";
+import Image from "next/image";
 
-import { gsap, useGSAP} from '@/llib/gsap';
+import { gsap, useGSAP } from '@/llib/gsap';
 import { useRef } from "react";
 import { useTitleAnimation } from "@/llib/useTitleAnimation";
 
@@ -26,11 +27,13 @@ export interface ResortCardProps {
 }
 export function ResortCard({ resort }: ResortCardProps) {
     return (
-        <Link href={`/resorts/${resort.slug}`} className="resort-card flex flex-col gap-3 md:gap-4 lg:min-w-77.5" >
+        <Link href={`/resorts/${resort.slug}`} className="group resort-card flex flex-col gap-3 md:gap-4 lg:min-w-77.5" >
 
             {/* img */}
             <div className=" relative h-64 max-h-64 rounded-2xl overflow-hidden md:max-h-96 md:h-96">
-                <img src={resort.img} alt={resort.title} className="h-full w-full object-cover object-center resort-img-container" />
+                <div className="h-full w-full resort-img-container">
+                    <Image src={resort.img} alt={resort.title} fill loading="eager" className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300 ease-in-out" />
+                </div>
                 <div className="absolute top-5 left-5 z-11 md:top-6 md:left-6">
                     <TitlePill label={resort.cat} type="card-label" />
                 </div>
@@ -75,6 +78,7 @@ function ReefSection() {
             scrollTrigger: {
                 trigger: '.resort-card',
                 start: 'top bottom',
+                end: 'top 20%',
                 scrub: true,
             }
         })
@@ -84,28 +88,28 @@ function ReefSection() {
             <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
 
 
-                    {/* title  */}
-                    <div className="mb-12 flex flex-col gap-6 md:gap-8 md:mb-16 lg:flex-row lg:items-end container" ref={titleRef}>
+                {/* title  */}
+                <div className="mb-12 flex flex-col gap-6 md:gap-8 md:mb-16 lg:flex-row lg:items-end container" ref={titleRef}>
 
-                        <div className="flex flex-col gap-5 md:gap-6">
-                            <HeadingText block1="Reefside" block2="Sanctuaries" align='text-left' />
-                            <div>
-                                <p>Glass floors pulse with parrotfish dawn colors. Private decks sip Tahiti's tides. Discover our floating havens where lagoon rhythms compose your perfect wellness escape.</p>
-                            </div>
+                    <div className="flex flex-col gap-5 md:gap-6">
+                        <HeadingText block1="Reefside" block2="Sanctuaries" align='text-left' />
+                        <div>
+                            <p>Glass floors pulse with parrotfish dawn colors. Private decks sip Tahiti's tides. Discover our floating havens where lagoon rhythms compose your perfect wellness escape.</p>
                         </div>
-                        <Link href='/resorts'>
-                            <Button label="See All Resorts" bg="sec" />
-                        </Link>
                     </div>
+                    <Link href='/resorts'>
+                        <Button label="See All Resorts" bg="sec" />
+                    </Link>
+                </div>
 
 
-                    {/* resorts list */}
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-4 w-full">
-                        {resorts.map((resort) => (
-                            <ResortCard key={resort.id} resort={resort} />
-                        )).slice(0, 3)
-                        }
-                    </div>
+                {/* resorts list */}
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-4 w-full">
+                    {resorts.map((resort) => (
+                        <ResortCard key={resort.id} resort={resort} />
+                    )).slice(0, 3)
+                    }
+                </div>
             </div>
         </section >
     )

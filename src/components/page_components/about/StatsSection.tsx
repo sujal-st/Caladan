@@ -32,7 +32,7 @@ function StatsSection() {
 
                 {/* title */}
                 <div className="mb-12 title">
-                    <h2 className="text-[32px] leading-9 md:text-[40px] md:leaidng-11 ">
+                    <h2 className="text-[32px] leading-9 md:text-[40px] md:leaidng-11 lg:leading-11">
                         Local marine guides lead night snorkels with glowing corals.Cultural nights bring fire dancing and third-generation Tahitian storytellers to your table.
                     </h2>
                 </div>

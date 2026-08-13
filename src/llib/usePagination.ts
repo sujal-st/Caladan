@@ -1,6 +1,5 @@
 'use client';
 import { useState } from "react";
-import type { review } from "@/components/page_components/home/ReviewSection";
 
 export function usePagination(slidesPerPage:number, array:review[]){
     const totalPages=Math.ceil(array.length/slidesPerPage);

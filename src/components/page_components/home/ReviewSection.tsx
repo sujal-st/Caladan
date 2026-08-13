@@ -56,25 +56,25 @@ function ReviewCard({ r }: ReviewCardProps) {
     )
 }
 function ReviewSection() {
-    const sectionRef= useRef<HTMLElement|null>(null);
-    const titleRef= useRef<HTMLDivElement|null>(null);
-    const scrollRef= useRef<HTMLDivElement|null>(null);
-    
+    const sectionRef = useRef<HTMLElement | null>(null);
+    const titleRef = useRef<HTMLDivElement | null>(null);
+    const scrollRef = useRef<HTMLDivElement | null>(null);
 
-    useTitleAnimation(titleRef,'.container',sectionRef);
 
-    const {slides}= usePagination(3,reviews);
-    
-    const handlePrev=()=>{
-        scrollRef.current?.scrollBy({left:-scrollRef.current.clientWidth, behavior: 'smooth'});
+    useTitleAnimation(titleRef, '.container', sectionRef);
+
+    const { slides } = usePagination(3, reviews);
+
+    const handlePrev = () => {
+        scrollRef.current?.scrollBy({ left: -scrollRef.current.clientWidth, behavior: 'smooth' });
     }
-    const handleNext=()=>{
-        scrollRef.current?.scrollBy({left: scrollRef.current.clientWidth, behavior: 'smooth'})
+    const handleNext = () => {
+        scrollRef.current?.scrollBy({ left: scrollRef.current.clientWidth, behavior: 'smooth' })
     }
     return (
         <section className='pt-12 pb-6 px-4 md:pt-20 md:pb-8 md:px-8' ref={sectionRef}>
             <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 xl:max-w-[1800px] mx-auto">
-                <div className='container flex flex-col items-center w-full'>
+                <div className='container flex flex-col items-center w-full mx-auto'>
 
 
                     <div className='flex flex-col items-center w-full gap-6 mb-12 container' ref={titleRef}>
@@ -90,21 +90,27 @@ function ReviewSection() {
                     </div>
 
                     {/* card */}
-                    <div className='flex w-full snap-x snap-mandatory scroll-smooth scrollbar-none mb-8 overflow-x-auto xl:overflow-x-auto lg:gap-3' ref={scrollRef}>
-                        {
-                            slides.map((review:review) => (
-                                <ReviewCard key={review.id} r={review} />
-                            ))
-                        }
+                    <div className='relative'>
+
+                        <div className='absolute left-0 inset-0 bg-linear-to-r from-white to-transparent w-50 z-2' />
+                        <div className='flex w-full snap-x snap-mandatory scroll-smooth scrollbar-none mb-8 overflow-x-auto xl:overflow-x-auto lg:gap-3' ref={scrollRef}>
+                            {
+                                slides.map((review: review) => (
+                                    <ReviewCard key={review.id} r={review} />
+                                ))
+                            }
+                        </div>
+                        {/* <div className='absolute right-0 inset-0 bg-linear-to-l from-white to-transparent w-50 z-2'/> */}
                     </div>
+
 
                     {/* slider button */}
                     <div className='flex gap-2'>
-                        <button className='rounded-full p-2 bg-prim-btn' onClick={handlePrev}>
-                            <ArrowBackIcon className='text-white!'/>
+                        <button className='rounded-full p-2 bg-prim-btn cursor-pointer' onClick={handlePrev}>
+                            <ArrowBackIcon className='text-white!' />
                         </button>
-                        <button className='rounded-full p-2 bg-gray-200' onClick={handleNext}>
-                            <ArrowForwardIcon/>
+                        <button className='rounded-full p-2 bg-gray-200 hover:bg-prim-btn duration-300 transition-colors cursor-pointer' onClick={handleNext}>
+                            <ArrowForwardIcon className='hover:text-white! duration-300! transition-colors!' />
                         </button>
                     </div>
 
