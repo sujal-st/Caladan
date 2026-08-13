@@ -1,9 +1,11 @@
 'use client';
-import { useEffect, useState } from 'react'
+import { useState } from 'react';
 import HeadingText from '@/components/common/HeadingText'
 import TitlePill from '@/components/common/TitlePill';
 import AddIcon from '@mui/icons-material/Add';
-import {useGSAP,gsap} from '@/llib/gsap';
+import { useGSAP, gsap } from '@/llib/gsap';
+
+import { tabData } from '@/components/constants/data';
 
 
 interface FAQDropdownProps {
@@ -16,12 +18,12 @@ interface FAQDropdownProps {
 export function FAQDropdown({ li }: FAQDropdownProps) {
     const [toggle, setToggle] = useState(false);
     return (
-        <div className='bg-gray-100 p-4 rounded-sm md:p-5 faq-grid' onClick={()=>setToggle(prev=>!prev)}>
+        <div className='bg-gray-100 p-4 rounded-sm md:p-5 faq-grid' onClick={() => setToggle(prev => !prev)}>
             <div key={li.id} className=' flex justify-between gap-6 items-center '>
                 <div className='leading-5 text-prim-btn text-base font-medium'>
                     {li.title}
                 </div>
-                <div className={`${toggle?'rotate-315':''} transition-transform duration-300`}>
+                <div className={`${toggle ? 'rotate-315' : ''} transition-transform duration-300`}>
                     <AddIcon />
                 </div>
             </div>
@@ -39,55 +41,18 @@ export function FAQDropdown({ li }: FAQDropdownProps) {
 function FAQSection() {
     const [tabSwitch, setTabSwitch] = useState('1');
 
-    const tab = [
-        {
-            id: '1', title: 'Software', list: [
-                { id: "1", title: "What makes Caladan different from other beach resorts?", description: "Add answer here." },
-                { id: "2", title: "Do you offer all-inclusive vacation packages?", description: "Add answer here." },
-                { id: "3", title: "What activities are available at the resort?", description: "Add answer here." },
-                { id: "4", title: "Do you accommodate special dietary needs?", description: "Add answer here." },
-                { id: "5", title: "Can I host events or weddings at Caladan?", description: "Add answer here." },
-                { id: "6", title: "What payment methods do you accept?", description: "Add answer here." },
-                { id: "7", title: "Is there free Wi-Fi at Caladan?", description: "Add answer here." },
-            ]
-        },
-        {
-            id: '2', title: 'Integration', list: [
-                { id: "1", title: "What makes Caladan different from other beach resorts?", description: "Add answer here." },
-                { id: "2", title: "Do you offer all-inclusive vacation packages?", description: "Add answer here." },
-                { id: "3", title: "What activities are available at the resort?", description: "Add answer here." },
-                { id: "4", title: "Do you accommodate special dietary needs?", description: "Add answer here." },
-                { id: "5", title: "Can I host events or weddings at Caladan?", description: "Add answer here." },
-                { id: "6", title: "What payment methods do you accept?", description: "Add answer here." },
-                { id: "7", title: "Is there free Wi-Fi at Caladan?", description: "Add answer here." },
-            ]
-        },
-        {
-            id: '3', title: 'Pricing', list: [
-                { id: "1", title: "What makes Caladan different from other beach resorts?", description: "Add answer here." },
-                { id: "2", title: "Do you offer all-inclusive vacation packages?", description: "Add answer here." },
-                { id: "3", title: "What activities are available at the resort?", description: "Add answer here." },
-                { id: "4", title: "Do you accommodate special dietary needs?", description: "Add answer here." },
-                { id: "5", title: "Can I host events or weddings at Caladan?", description: "Add answer here." },
-                { id: "6", title: "What payment methods do you accept?", description: "Add answer here." },
-                { id: "7", title: "Is there free Wi-Fi at Caladan?", description: "Add answer here." },
-            ]
-        },
-    ]
 
-    
-    useGSAP(()=>{
-        gsap.from('.faq-grid',{
-            opacity:0,
+    useGSAP(() => {
+        gsap.from('.faq-grid', {
+            opacity: 0,
             ease: 'power1.out',
-            delay:0.1
+            delay: 0.1
         })
-    },[tabSwitch])
+    }, [tabSwitch])
     return (
         <section className='py-20 p-3 md:px-8'>
-            <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto rounded-2xl overflow-hidden">
-                <div>
-
+            <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 xl:max-w-350 mx-auto rounded-2xl overflow-hidden xl:flex xl:flex-col min-[1025px]:items-center">
+                {/* <div className=''> */}
                     <div className='flex flex-col items-center gap-5 mb-12 md:mb-16'>
                         <TitlePill label='island essential' />
                         <HeadingText block1='Your Stay, ' block2='Answered' />
@@ -95,31 +60,29 @@ function FAQSection() {
 
 
                     {/* tab */}
-                    <div>
-                        <div className='container'>
-                            <div className='border border-gray-200 rounded-lg bg-gray-100 flex justify-center items-center w-fit mx-auto p-1 mb-6 md:w-auto md:max-w-122.5 md:mb-8'>
-                                {tab.map((t) => (
-                                    <div key={t.id} className={`rounded-lg text-center px-5 py-2 leading-5 text-base md:leading-6 md:px-6 md:flex-1 ${tabSwitch === t.id ? 'bg-prim-btn text-white' : 'text-prim-btn/50'}`} onClick={() => setTabSwitch(t.id)}>
-                                        {t.title}
-                                    </div>
-                                ))
-                                }
-                            </div>
-
-                            {tab.map((t) => (
-                                tabSwitch === t.id
-                                &&
-                                <div key={t.id} className='flex flex-col gap-3 md:gap-4'>
-                                    {t.list.map((li) => (
-
-                                        <FAQDropdown key={li.id} li={li} />
-                                    ))}
+                    <div className='container'>
+                        <div className='border border-gray-200 rounded-lg bg-gray-100 flex justify-center items-center w-fit mx-auto p-1 mb-6 md:w-auto md:max-w-122.5 md:mb-8'>
+                            {tabData.map((t) => (
+                                <div key={t.id} className={`rounded-lg text-center px-5 py-2 leading-5 text-base md:leading-6 md:px-6 md:flex-1 ${tabSwitch === t.id ? 'bg-prim-btn text-white' : 'text-prim-btn/50'}`} onClick={() => setTabSwitch(t.id)}>
+                                    {t.title}
                                 </div>
-                            ))}
-
+                            ))
+                            }
                         </div>
+
+                        {tabData.map((t) => (
+                            tabSwitch === t.id
+                            &&
+                            <div key={t.id} className='flex flex-col justify-center gap-3 md:gap-4 w-full'>
+                                {t.list.map((li) => (
+
+                                    <FAQDropdown key={li.id} li={li} />
+                                ))}
+                            </div>
+                        ))}
+
                     </div>
-                </div>
+                {/* </div> */}
             </div>
 
         </section>

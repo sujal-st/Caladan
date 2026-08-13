@@ -1,12 +1,18 @@
+'use client';
 import TitlePill from "@/components/common/TitlePill"
 import TextInput, { DropDown } from "../inquiry/TextInput"
 import CheckBox from "../inquiry/CheckBox"
 
+import { useRef } from "react";
+import { useCardAnimation } from "@/llib/useCardAnimation";
 
 function ContactCard() {
+    const sectionRef = useRef<HTMLElement|null>(null);
+
+    useCardAnimation('.form-card');
     return (
         <section className="pt-24 pb-6 px-4 md:pt-30 md:pb-8 md:px-8">
-            <div className="relative p-5 md:p-6 rounded-lg overflow-hidden flex flex-col gap-8 md:gap-12 lg:flex-row">
+            <div className="relative p-5 md:p-6 rounded-lg overflow-hidden grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-2 form-card">
                 <div className="absolute inset-0 h-full w-full -z-2">
                     <img src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69a71bba30f0d6079e4cbf30_Aerial%20View%20of%20a%20Tropical%20Beach.avif" alt="contact" className="w-full h-full object-cover" />
                 </div>
@@ -24,7 +30,7 @@ function ContactCard() {
                     </div>
 
 
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-[60%_30%] md:gap-8">
                         <div className="flex flex-col gap-3 md:gap-4">
                             <div>Email</div>
                             <p className="whitespace-nowrap">reservations@caladanresort.com</p>
@@ -46,7 +52,7 @@ function ContactCard() {
                 </div>
 
                 {/* form */}
-                <form action="" className="p-6 bg-gray-100 rounded-lg flex flex-col gap-5 lg:w-[51%]">
+                <form action="" className="p-6 bg-gray-100 rounded-lg flex flex-col gap-5 lg:w-full md:p-8">
                     <TextInput name="fullname" label="full name" required={true} placeholder="Your name" type="text" sty='w-full'/>
                     <TextInput name="email" label="email address" required={true} placeholder="xyz@example.com" type="email" sty='w-full'/>
                     <TextInput name="phone" label="phone number" required={false} placeholder="+689 40 123 456" type="tel" sty='w-full'/>

@@ -5,14 +5,15 @@ import TitlePill from "@/components/common/TitlePill";
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import { resorts } from "@/components/constants/data";
+import Link from "next/link";
 
-import { gsap, useGSAP, ScrollTrigger } from '@/llib/gsap';
+import { gsap, useGSAP} from '@/llib/gsap';
 import { useRef } from "react";
 import { useTitleAnimation } from "@/llib/useTitleAnimation";
-import Link from "next/link";
 
 export interface resort {
     id: string;
+    slug: string;
     img: string;
     title: string;
     cat: string;
@@ -25,7 +26,7 @@ export interface ResortCardProps {
 }
 export function ResortCard({ resort }: ResortCardProps) {
     return (
-        <div className="resort-card flex flex-col gap-3 md:gap-4 lg:max-w-77.5" >
+        <Link href={`/resorts/${resort.slug}`} className="resort-card flex flex-col gap-3 md:gap-4 lg:min-w-77.5" >
 
             {/* img */}
             <div className=" relative h-64 max-h-64 rounded-2xl overflow-hidden md:max-h-96 md:h-96">
@@ -57,7 +58,7 @@ export function ResortCard({ resort }: ResortCardProps) {
                 </div>
             </div>
 
-        </div>
+        </Link>
     )
 }
 function ReefSection() {
@@ -82,28 +83,29 @@ function ReefSection() {
         <section className="py-12 px-4 md:py-20 md:px-8" ref={sectionRef}>
             <div className="h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto">
 
-                {/* title  */}
-                <div className="mb-12 flex flex-col gap-6 md:gap-8 md:mb-16 lg:flex-row lg:items-end container" ref={titleRef}>
 
-                    <div className="flex flex-col gap-5 md:gap-6">
-                        <HeadingText block1="Reefside" block2="Sanctuaries" align='text-left' />
-                        <div>
-                            <p>Glass floors pulse with parrotfish dawn colors. Private decks sip Tahiti's tides. Discover our floating havens where lagoon rhythms compose your perfect wellness escape.</p>
+                    {/* title  */}
+                    <div className="mb-12 flex flex-col gap-6 md:gap-8 md:mb-16 lg:flex-row lg:items-end container" ref={titleRef}>
+
+                        <div className="flex flex-col gap-5 md:gap-6">
+                            <HeadingText block1="Reefside" block2="Sanctuaries" align='text-left' />
+                            <div>
+                                <p>Glass floors pulse with parrotfish dawn colors. Private decks sip Tahiti's tides. Discover our floating havens where lagoon rhythms compose your perfect wellness escape.</p>
+                            </div>
                         </div>
+                        <Link href='/resorts'>
+                            <Button label="See All Resorts" bg="sec" />
+                        </Link>
                     </div>
-                    <Link href='/resorts'>
-                        <Button label="See All Resorts" bg="sec" />
-                    </Link>
-                </div>
 
 
-                {/* resorts list */}
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-4">
-                    {resorts.map((resort) => (
-                        <ResortCard key={resort.id} resort={resort} />
-                    )).slice(0, 3)
-                    }
-                </div>
+                    {/* resorts list */}
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-4 w-full">
+                        {resorts.map((resort) => (
+                            <ResortCard key={resort.id} resort={resort} />
+                        )).slice(0, 3)
+                        }
+                    </div>
             </div>
         </section >
     )

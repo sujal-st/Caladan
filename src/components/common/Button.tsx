@@ -9,8 +9,8 @@ function Button({ label = "Book Now", bg="" }: ButtonProps) {
         sec: "bg-gray-100 text-prim-btn",
     }
     return (
-        <button className={`rounded-full py-2.75 w-fit px-4 ${bg==='prim'?style.prim:bg==="sec"?style.sec:bg}`}>
-            <div className="whitespace-nowrap leading-5 text-[13px] font-medium  lg:text-sm opacity-100">
+        <button className={`rounded-full py-2.75 w-fit px-4  ${bg==='prim'?style.prim:bg==="sec"?style.sec:bg}`}>
+            <div className="whitespace-nowrap leading-5 text-[13px] font-medium  lg:text-sm opacity-100 hover:scale-95 active:scale-90 transition-transform">
                 {label}
             </div>
         </button>

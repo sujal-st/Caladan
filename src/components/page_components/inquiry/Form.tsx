@@ -1,14 +1,18 @@
-import React from 'react'
+'use client';
 import TitlePill from '@/components/common/TitlePill'
-import Button from '@/components/common/Button'
 import TextInput, { DateField, DropDown } from './TextInput'
 import CheckBox from './CheckBox'
+import { useRef } from 'react';
+import { useCardAnimation } from '@/llib/useCardAnimation';
 
 function Form() {
-    return (
-        <section className='pt-24 pb-16 px-4 md:pt-40 md:pb-30 md:px-8'>
-            <div>
+    const sectionRef = useRef<HTMLElement|null>(null);
 
+    useCardAnimation('.container');
+    return (
+        <section className='pt-24 pb-16 px-4 md:pt-40 md:pb-30 md:px-8' ref={sectionRef}>
+
+            <div className='container'>
                 {/* title */}
                 <div className='flex flex-col items-center gap-6 mb-12'>
                     <div className='flex flex-col items-center gap-5'>
