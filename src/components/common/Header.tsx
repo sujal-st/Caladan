@@ -9,6 +9,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Route } from "next";
+import { usePathname } from "next/navigation";
 
 
 
@@ -112,6 +113,7 @@ function Header() {
 
     const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
+    const pathName=usePathname();
 
     const clearCloseTimer = () => {
         if (closeTimeout.current) {
@@ -148,6 +150,10 @@ function Header() {
     }, []);
 
     useEffect(() => clearCloseTimer, []);
+
+    useEffect(()=>{
+        setMenuToggle(false);
+    },[pathName])
     return (
         <>
             <div className="hidden lg:flex fixed top-0 left-0 w-full z-30 bg-white h-4"></div>
@@ -196,7 +202,7 @@ function Header() {
 
                             <div className="flex flex-col">
                                 {menu.map((m) => (
-                                    <List key={m.id} m={m} />
+                                    <List key={m.id} m={m}/>
                                 ))}
                                 <Link href='/book-inquiry' className="mt-2">
                                     <Button label="Get Started" />
