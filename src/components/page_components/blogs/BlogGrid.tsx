@@ -1,14 +1,19 @@
+'use client'
 import TitlePill from '@/components/common/TitlePill';
 import Image from 'next/image';
 import { blogs } from '@/components/constants/data';
 import type { blog } from '@/components/constants/types';
 import Link from 'next/link';
+import { useTitleAnimation } from '@/llib/useTitleAnimation';
+import { useRef } from 'react';
+
 
 export type BlogCardProps = {
     blog: blog
 }
 
 function BlogCard({ blog }: BlogCardProps) {
+    
     return (
         <div className='bg-gray-100 rounded-lg p-3 flex flex-col gap-3 md:p-4'>
             <div className='flex flex-col gap-3'>
@@ -35,9 +40,13 @@ function BlogCard({ blog }: BlogCardProps) {
 }
 
 function BlogGrid() {
+    const sectionRef=useRef<HTMLElement|null>(null);
+    const titleRef=useRef<HTMLDivElement|null>(null);
+
+    useTitleAnimation(titleRef,'.container')
     return (
-        <section className='pt-24 pb-6 px-4 md:px-8 md:pt-40 md:pb-8'>
-            <div className='md:max-w-full mx-auto'>
+        <section className='pt-24 pb-6 px-4 md:px-8 md:pt-40 md:pb-8' ref={sectionRef}>
+            <div className='md:max-w-full mx-auto container' ref={titleRef}>
                 {/* title */}
                 <div className='flex flex-col items-center gap-6 mb-8 md:mb-12'>
                     <TitlePill label='island stories' />
@@ -53,7 +62,7 @@ function BlogGrid() {
 
                     <div className='relative h-100 rounded-lg overflow-hidden lg:h-full'>
                         <div className="bg-prim-btn/40 absolute inset-0 -z-1"></div>
-                        <Image src='https://cdn.prod.website-files.com/69833b76e5b4bee55e87302b/69a98d78cf5423120cd79c09_pexels-saeb-mahajna-14125913-6297105.avif' alt='img' fill className='object-cover -z-2' />
+                        <Image src='https://cdn.prod.website-files.com/69833b76e5b4bee55e87302b/69a98d78cf5423120cd79c09_pexels-saeb-mahajna-14125913-6297105.avif' loading='eager' alt='img' fill className='object-cover -z-2' />
 
                         <div className='flex flex-col justify-end gap-6 p-6 text-white h-full md:p-8 md:gap-8 lg:justify-between'>
                             <div className='flex flex-col gap-6 md:gap-8'>
@@ -69,7 +78,7 @@ function BlogGrid() {
                             <div className='flex flex-col gap-3'>
                                 <div className='flex items-center gap-2'>
                                     <div className='relative h-7 w-7 rounded-full overflow-hidden'>
-                                        <Image src='https://cdn.prod.website-files.com/69833b76e5b4bee55e87302b/69a98d83f2585eea375531b0_Tropical%20Balcony%20Serenity%20(1).avif' alt='img' fill className='object-cover' />
+                                        <Image src='https://cdn.prod.website-files.com/69833b76e5b4bee55e87302b/69a98d83f2585eea375531b0_Tropical%20Balcony%20Serenity%20(1).avif' sizes='(max-width:767px) 704px, (max-width:1023px) 632px' alt='img' fill className='object-cover' />
                                     </div>
                                     <div className='leading-6 text-base font-medium md:leading-6 md:text-[20px]'>Meeva Tetauni</div>
                                 </div>

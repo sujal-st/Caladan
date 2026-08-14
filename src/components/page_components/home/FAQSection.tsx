@@ -60,7 +60,7 @@ function FAQSection() {
 
 
                     {/* tab */}
-                    <div className='container min-[1200px]:max-w-[1000px]'>
+                    <div className='container min-[1200px]:max-w-250'>
                         <div className='border border-gray-200 rounded-lg bg-gray-100 flex justify-center items-center w-fit mx-auto p-1 mb-6 md:w-auto md:max-w-122.5 md:mb-8'>
                             {tabData.map((t) => (
                                 <div key={t.id} className={`rounded-lg text-center px-5 py-2 leading-5 text-base cursor-pointer md:leading-6 md:px-6 md:flex-1 ${tabSwitch === t.id ? 'bg-prim-btn text-white' : 'text-prim-btn/50'}`} onClick={() => setTabSwitch(t.id)}>

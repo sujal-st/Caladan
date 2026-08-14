@@ -31,13 +31,13 @@ export function ResortCard({ resort }: ResortCardProps) {
 
             {/* img */}
             <div className=" relative h-64 max-h-64 rounded-2xl overflow-hidden md:max-h-96 md:h-96">
-                <div className="h-full w-full resort-img-container">
-                    <Image src={resort.img} alt={resort.title} fill loading="eager" className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300 ease-in-out" />
+                <div className="relative h-full w-full resort-img-container">
+                    <Image src={resort.img} alt={resort.title} fill loading="eager" sizes="(max-width: 425px) 420px, (max-width: 767px) 632px, (max-width: 1023px) 238px, 439px" className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300 ease-in-out" />
                 </div>
                 <div className="absolute top-5 left-5 z-11 md:top-6 md:left-6">
                     <TitlePill label={resort.cat} type="card-label" />
                 </div>
-                <div className="w-full h-full bg-black/20 inset-0 absolute z-10"></div>
+                <div className="w-full h-1/2 bg-linear-to-b from-prim-btn to-transparent inset-0 absolute z-10"></div>
             </div>
 
 

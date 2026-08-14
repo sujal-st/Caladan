@@ -200,3 +200,13 @@ export const blogs: blog[] = [
 
 ];
 
+// faq list
+export const list = [
+    { id: "1", title: "What makes Caladan different from other beach resorts?", description: "Add answer here." },
+    { id: "2", title: "Do you offer all-inclusive vacation packages?", description: "Add answer here." },
+    { id: "3", title: "What activities are available at the resort?", description: "Add answer here." },
+    { id: "4", title: "Do you accommodate special dietary needs?", description: "Add answer here." },
+    { id: "5", title: "Can I host events or weddings at Caladan?", description: "Add answer here." },
+    { id: "6", title: "What payment methods do you accept?", description: "Add answer here." },
+    { id: "7", title: "Is there free Wi-Fi at Caladan?", description: "Add answer here." },
+]

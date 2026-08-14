@@ -13,7 +13,7 @@ export function useTitleAnimation(selector:RefObject<HTMLDivElement|null>,trigge
             ease: 'power1.out',
             duration:0.8,
             scrollTrigger:{
-                trigger:trigger,
+                trigger:selector.current,
                 start: 'top 80%',
             }
         })

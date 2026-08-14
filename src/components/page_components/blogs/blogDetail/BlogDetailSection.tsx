@@ -24,13 +24,13 @@ function BlogDetailSection({ blog }: BlogCardProps) {
                 {/* thumbnail */}
                 <div className='relative h-125 rounded-lg overflow-hidden'>
                     <div className='bg-prim-btn/50 absolute inset-0 -z-1'></div>
-                    <Image src={blog.img} alt={blog.title} fill className='object-cover -z-2' loading='eager' />
+                    <Image src={blog.img} alt={blog.title} sizes='(max-width:767px) 704px, (max-width:1023px) 960px' fill className='object-cover -z-2' loading='eager' />
 
                     <div className='p-6 flex items-end h-full md:p-8'>
                         <div className='flex gap-3 md:justify-between md:items-end md:w-full'>
                             <div className='flex gap-2 items-center'>
                                 <div className='relative w-7 h-6 rounded-full overflow-hidden'>
-                                    <Image src='https://cdn.prod.website-files.com/69833b76e5b4bee55e87302b/69a98d83f2585eea375531b0_Tropical%20Balcony%20Serenity%20(1).avif' alt='profile' fill className='object-cover' />
+                                    <Image src='https://cdn.prod.website-files.com/69833b76e5b4bee55e87302b/69a98d83f2585eea375531b0_Tropical%20Balcony%20Serenity%20(1).avif'sizes='(max-width:767px) 704px, (max-width:1023px) 960px' alt='profile' fill className='object-cover' />
                                 </div>
                                 <div className='flex flex-col leading-5 text-base md:leading-6'>
                                     <div className='text-white'>Maeva Tetuanui</div>

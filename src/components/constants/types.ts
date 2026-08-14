@@ -14,11 +14,19 @@ export interface review {
 
 export interface blog {
     id: string;
-    slug:string;
+    slug: string;
     date: string;
     time: string;
     title: string;
     subtitle: string;
-    img:string;
-    cat:string
+    img: string;
+    cat: string
+}
+
+export interface faq {
+
+    id: string;
+    title: string;
+    description: string;
+
 }

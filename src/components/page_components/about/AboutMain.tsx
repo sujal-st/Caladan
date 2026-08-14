@@ -71,24 +71,24 @@ function AboutMain() {
                 <div className="absolute h-screen w-full">
                     <div className="absolute top-[15%] left-[5%]  shadow-lg md:top-[10%] md:left-[15%] border border-white parallax-img">
                         <div className="relative border-2 h-20 w-32 border-white overflow-hidden md:border-4 rounded-lg md:h-32 md:w-48 lg:h-48 lg:w-72">
-                            <Image src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69aafdfd2e687076e1f59b64_pexels-adriendrj-33980501.avif" fill alt="img" className="h-full w-full object-cover " />
+                            <Image src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69aafdfd2e687076e1f59b64_pexels-adriendrj-33980501.avif" sizes='(max-width: 424px) 128px, (max-width:767px) 192px, (max-width:1023px) 288px' fill alt="img" className="h-full w-full object-cover " />
                         </div>
                     </div>
 
                     <div className="absolute top-[10%] right-[10%]  shadow-lg rounded-lg  overflow-hidden md:top-[10%] md:right-[10%] border border-white parallax-img">
                         <div className="relative border-2 h-20 w-32 border-white rounded-lg  overflow-hidden md:border-4 md:h-32 md:w-48 lg:h-48 lg:w-72">
-                            <Image src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69aafdfdead8470d2eaa6414_pexels-slimmars-13-197677686-13801311.avif" fill alt="img" className="h-full w-full object-cover " />
+                            <Image src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69aafdfdead8470d2eaa6414_pexels-slimmars-13-197677686-13801311.avif" sizes='(max-width: 424px) 128px, (max-width:767px) 192px, (max-width:1023px) 288px' fill alt="img" className="h-full w-full object-cover " />
                         </div>
                     </div>
 
                     <div className="absolute bottom-[5%] left-[7.5%]  shadow-lg rounded-lg  overflow-hidden md:left-[10%] border border-white parallax-img">
                         <div className="relative border-2 h-20 w-32 border-white rounded-lg overflow-hidden md:border-4 md:h-32 md:w-48 lg:h-48 lg:w-72">
-                            <Image src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69aafdfd399edcec4ea674d1_pexels-walter-torres-198852755-11533702.avif" fill alt="img" className="h-full w-full object-cover " />
+                            <Image src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69aafdfd399edcec4ea674d1_pexels-walter-torres-198852755-11533702.avif" sizes='(max-width: 424px) 128px, (max-width:767px) 192px, (max-width:1023px) 288px' fill alt="img" className="h-full w-full object-cover " />
                         </div>
                     </div>
                     <div className="absolute bottom-[15%] right-[5%]  shadow-lg rounded-lg  overflow-hidden md:bottom-[10%] md:right-[12.5%] border border-white parallax-img">
                         <div className="relative border-2 h-20 w-32 border-white rounded-lg  overflow-hidden md:border-4 md:h-32 md:w-48 lg:h-48 lg:w-72">
-                            <Image src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69aafdfd2a9c431c90a10078_pexels-freestockpro-1007657.avif" fill alt="img" className="h-full w-full object-cover " />
+                            <Image src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69aafdfd2a9c431c90a10078_pexels-freestockpro-1007657.avif" sizes='(max-width: 424px) 128px, (max-width:767px) 192px, (max-width:1023px) 288px' fill alt="img" className="h-full w-full object-cover " />
                         </div>
                     </div>
 

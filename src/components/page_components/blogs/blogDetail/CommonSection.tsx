@@ -34,7 +34,7 @@ function CommonSection() {
                 </div>
 
                 <div className="pt-5 mb-2.5 relative min-w-98 min-h-56 rounded-lg overflow-hidden md:min-h-99">
-                    <Image src="/images/dummy.avif" alt="img" fill className="object-cover" loading="lazy" />
+                    <Image src="/images/dummy.avif" alt="img" fill className="object-cover" loading="eager" />
                 </div>
                 <div className="pt-5 mb-2.5 leading-5 text-base md:leading-6">
                     <p className="mb-2.5"><strong>What to Expect (Our Guest Timeline)</strong></p>

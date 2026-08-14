@@ -67,8 +67,8 @@ function GallerySection() {
                 {/* gallery grid */}
                 <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
                     {gallery.map((card) => (
-                        <div key={card.id} className="relative gallery-card max-h-72 rounded-lg overflow-hidden md:max-h-108 lg:min-h-128 lg:min-w-45" >
-                            <Image src={card.img} alt="img" fill className="h-full w-full object-cover z-0"/>
+                        <div key={card.id} className="relative gallery-card min-h-72 rounded-lg overflow-hidden md:min-h-108 lg:min-h-128 lg:min-w-45" >
+                            <Image src={card.img} alt="img" sizes="(max-width:767px) 345px, (max-width:1023px) 228px" fill className="h-full w-full object-cover object-center z-0"/>
 
                             <div className="absolute bottom-0 bg-linear-to-t from-prim-btn to-transparent z-1 h-50 w-full md:from-prim-btn md:to-prim-btn/0"></div>
                             <div className="absolute bottom-5 left-5 text-white z-2">
