@@ -1,7 +1,7 @@
 'use client';
 import {useState} from 'react'
 import { tabData } from "@/components/constants/data";
-import { FAQDropdown } from '../../home/FAQSection';
+import { FAQDropdown } from '../../home/FAQTab';
 
 function FAQ() {
     const [tabSwitch, setTabSwitch] = useState('1');
