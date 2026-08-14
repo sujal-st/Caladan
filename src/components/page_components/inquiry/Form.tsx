@@ -19,7 +19,7 @@ function Form() {
                         <TitlePill label='your paradise awaits' />
 
                         <div>
-                            <h2 className='text-prim-btn/60 leading-13 text-[48px] whitespace-nowrap md:leading-17 md:text-[64px]'>
+                            <h2 className='text-prim-btn/60 leading-13 text-[48px] text-center md:whitespace-nowrap md:leading-17 md:text-[64px]'>
                                 Book Caladan <span className='text-prim-btn'>Now</span>
                             </h2>
                         </div>
