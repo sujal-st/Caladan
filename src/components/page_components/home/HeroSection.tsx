@@ -35,7 +35,7 @@ function HeroSection() {
             <div className="rounded-2xl h-full max-w-105 min-[426px]:max-w-158 md:max-w-187 lg:max-w-337.5 mx-auto container">
                 <div className="relative overflow-hidden rounded-xl md:h-full ">
                     <div className="bg-prim-btn absolute z-10 h-full w-full opacity-40"></div>
-                    <video id="532ef140-c6a2-edd2-7d75-66929c4acf39-video" preload="metadata" poster='/images/hero-section-vid-frame.avif' loop muted autoPlay className="absolute z-0 h-full w-full object-cover object-center rounded-xl"  ref={vidRef}>
+                    <video id="532ef140-c6a2-edd2-7d75-66929c4acf39-video" preload="metadata" poster={getOptimizedPosterUrl('/images/hero-section-vid-frame.avif')} loop muted autoPlay className="absolute z-0 h-full w-full object-cover object-center rounded-xl"  ref={vidRef}>
                         <source src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012%2F69b06b4bfbdb2da284a4ec5e_8440992-uhd_2732_1440_25fps_webm.webm" />
                     </video>
 
