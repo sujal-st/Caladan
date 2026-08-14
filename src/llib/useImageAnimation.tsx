@@ -1,6 +1,6 @@
 import {gsap,useGSAP,ScrollTrigger} from '@/llib/gsap';
 
-export function useImageAnimation(selector){
+export function useImageAnimation(selector:any){
     useGSAP(()=>{
 
         const image=gsap.utils.toArray<HTMLImageElement>(selector);
