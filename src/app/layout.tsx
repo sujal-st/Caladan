@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   other: {
     rel: 'preload',
     as: 'image',
-    href: '/hero-section-vid-frame.png',
+    href: '/hero-section-vid-frame.avif',
     fetchpriority: 'high', // Tells browser this is an LCP priority
   },
 };
