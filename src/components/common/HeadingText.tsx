@@ -1,4 +1,3 @@
-import React from 'react'
 
 function HeadingText({block1, block2, align="text-center"}:{block1:string, block2:string, align?:string}) {
     return (

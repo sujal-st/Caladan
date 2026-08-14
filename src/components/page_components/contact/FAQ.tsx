@@ -3,7 +3,7 @@ import HeadingText from "@/components/common/HeadingText"
 import TitlePill from "@/components/common/TitlePill";
 import { tabData } from "@/components/constants/data";
 import { useRef, useState } from "react";
-import { FAQDropdown } from "../home/FAQSection";
+import { FAQDropdown } from "../home/FAQTab";
 import { useTitleAnimation } from "@/llib/useTitleAnimation";
 
 function FAQ() {

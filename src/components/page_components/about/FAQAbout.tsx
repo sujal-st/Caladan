@@ -1,7 +1,7 @@
 'use client';
 import {list} from '@/components/constants/data'
 import TitlePill from "@/components/common/TitlePill";
-import { FAQDropdown } from "../home/FAQSection";
+import { FAQDropdown } from "../home/FAQTab";
 import HeadingText from "@/components/common/HeadingText";
 import { useTitleAnimation } from "@/llib/useTitleAnimation";
 import { useRef } from "react";
