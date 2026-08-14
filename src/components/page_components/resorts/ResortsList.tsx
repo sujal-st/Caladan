@@ -1,7 +1,7 @@
 import HeadingText from '@/components/common/HeadingText'
 import TitlePill from '@/components/common/TitlePill';
 import { resorts } from '@/components/constants/data';
-import { ResortCard } from '../home/ReefSection'
+import { ResortCard } from '../home/ReefTitle';
 
 function ResortsList() {
     return (
