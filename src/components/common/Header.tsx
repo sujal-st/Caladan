@@ -184,9 +184,9 @@ function Header() {
 
 
 
-                        <div className="">
+                        <Link href='/book-inquiry' className="">
                             <Button bg="prim" />
-                        </div>
+                        </Link>
 
                     </nav>
 
@@ -198,9 +198,9 @@ function Header() {
                                 {menu.map((m) => (
                                     <List key={m.id} m={m} />
                                 ))}
-                                <div className="mt-2">
+                                <Link href='/book-inquiry' className="mt-2">
                                     <Button label="Get Started" />
-                                </div>
+                                </Link>
                             </div>
 
                         </div>

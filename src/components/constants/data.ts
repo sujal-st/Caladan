@@ -25,7 +25,7 @@ export const resorts: resort[] = [
     {
         id: '3',
         slug: 'tide-song-villa',
-        img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e87302b/69b03783cb355b95794c522e_pexels-roman-odintsov-5667901.avif',
+        img: '/images/tide.avif',
         title: 'Tide Song Villa',
         cat: 'Overwater Villa',
         size: '320 ft2',
