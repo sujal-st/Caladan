@@ -1,6 +1,6 @@
 import HeadingText from '@/components/common/HeadingText'
 import { resorts } from '@/components/constants/data'
-import { ResortCard } from '../../home/ReefSection'
+import { ResortCard } from '../../home/ReefTitle'
 
 function MoreAccomodation() {
     return (
