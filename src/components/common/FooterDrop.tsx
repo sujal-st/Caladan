@@ -5,6 +5,8 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import type { ListProps } from './Footer';
 import { plexMono } from "../../llib/font";
 import { DropDown } from './Footer';
+import Link from 'next/link';
+import { Route } from 'next';
 
 export function List({ m, st }: ListProps) {
     const [toggle, setToggle] = useState(false);
@@ -31,12 +33,12 @@ export function List({ m, st }: ListProps) {
                 </div>
 
 
-                <div className='hidden md:flex flex-col gap-3 w-full'>
+                <div className='hidden md:flex flex-col gap-3 w-full group'>
                     {
-                        m.list.map((l: { id: string; label: string }) => (
-                            <div key={l.id} className='leading-5 text-base font-medium text-white md:leading-6'>
+                        m.list.map((l: { id: string; label: string; href: Route }) => (
+                            <Link href={l.href} key={l.id} className='leading-5 text-base font-medium text-white md:leading-6 group-hover:text-white/40 group-hover:blur-xs hover:text-white! hover:blur-none! transition-colors duration-300'>
                                 {l.label}
-                            </div>
+                            </Link>
                         ))
                     }
                 </div>

@@ -27,33 +27,23 @@ function Footer() {
     const rightMenu = [
         {
             id: '1', title: "company", list: [
-                { id: "1", label: "Home A" },
-                { id: "2", label: "Home B" },
-                { id: "3", label: "Home C" },
-                { id: "4", label: "About us" },
-                { id: "5", label: "Contact A" },
-                { id: "6", label: "Contact B" },
-                { id: "7", label: "Contact C" },
+                { id: "1", label: "Home" ,href:'/'},
+                { id: "2", label: "About us" ,href:'/about'},
+                { id: "3", label: "Contact" ,href:'/contact'},
             ]
         },
         {
             id: '2', title: "other pages", list: [
-                { id: "1", label: "Resorts" },
-                { id: "2", label: "Single Resort" },
-                { id: "3", label: "Gallery" },
-                { id: "4", label: "Blog A" },
-                { id: "5", label: "Blog B" },
-                { id: "6", label: "Blog C" },
+                { id: "1", label: "Resorts" ,href:'/resorts'},
+                { id: "2", label: "Resort Details" ,href:'/resorts/1'},
+                { id: "3", label: "Gallery" ,href:'/gallery'},
+                { id: "4", label: "Blogs" ,href:'/blogs'},
             ]
         },
         {
-            id: '3', title: "template", list: [
-                { id: "1", label: "Style Guide" },
-                { id: "2", label: "Changelog" },
-                { id: "3", label: "Licenses" },
-                { id: "4", label: "404" },
-                { id: "5", label: "Password" },
-                { id: "6", label: "More Templates" },
+            id: '3', title: "other", list: [
+                { id: "1", label: "404" ,href:'/'},
+                { id: "2", label: "FAQ" ,href:'/faq'},
             ]
         },
     ]

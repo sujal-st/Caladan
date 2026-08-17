@@ -6,7 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
-import { gsap, useGSAP, ScrollTrigger } from '@/llib/gsap';
+import { gsap, useGSAP } from '@/llib/gsap';
 import { useRef, useState, useEffect } from "react";
 
 
@@ -62,6 +62,7 @@ function TopImage({ resort }: TopImageProps) {
             <Image src={resort.img} alt={resort.title} sizes="(max-width: 768px) 100vw, 704px" fill className="object-cover h-full w-full -z-1 img" />
             <div className="absolute inset-0 h-full flex flex-col justify-between p-5 md:flex-row md:items-end">
                 <TitlePill label={resort.cat} />
+
                 {/* sub gallery */}
                 <div className="relative p-3 rounded-lg border border-gray-50 flex items-center gap-2 w-fit">
                     <div className="absolute inset-0 bg-white/30"></div>
@@ -76,6 +77,7 @@ function TopImage({ resort }: TopImageProps) {
                                 src={src}
                                 alt={`${resort.title} gallery ${i + 1}`}
                                 fill
+                                fetchPriority="high"
                                 sizes="(max-width: 768px) 62px, 118px"
                                 className="img object-cover hover:scale-105 transition-transform duration-300"
                             />

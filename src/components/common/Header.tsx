@@ -63,7 +63,7 @@ function List({ m }: ListProps) {
                                 {m.title}
                             </Link>
                         )}
-                    <button className={`${m.id != '1' && 'hidden'} h-5 w-5 transition-all duration-300`} onClick={() => { setToggle(prev => !prev); console.log(m.id) }}>
+                    <button className={`${m.id != '1' && 'hidden'} h-5 w-5 transition-all duration-300`} onClick={() =>  setToggle(prev => !prev)}>
                         {toggle ? (
                             <RemoveIcon className='h-full! w-full! text-black!' />
                         ) : (
@@ -107,6 +107,7 @@ function Header() {
                 { id: "1", label: "Blog ", href: '/blogs' },
                 { id: "2", label: "FAQ", href: '/faq' },
                 { id: "3", label: "Legal", href: '/' },
+                { id: "4", label: "Resorts", href: '/resorts' },
             ]
         },
     ];
@@ -220,15 +221,15 @@ function Header() {
                 <div className="hidden lg:block absolute top-0 -right-3.75 w-4 h-4 bg-white mask-[radial-gradient(circle_at_bottom_left,transparent_16px,black_16px)] scale-x-[-1] z-30" />
 
                 {/* desktop nav */}
-                <nav className="w-full">
+                <nav className="w-full ">
                     <div className="hidden lg:flex items-center justify-between px-6 py-3">
                         <div className="flex items-center">
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-4 group">
                                 {menu.map((l) => {
                                     if (l.id === '1') {
                                         return (
                                             <div key={l.id} ref={wrapperRef} className="relative leading-7 text-sm font-medium" onMouseEnter={openDesktopMenu} onMouseLeave={scheduleCloseDesktopMenu}>
-                                                <button type="button" onClick={() => setDesktopMenuToggle(prev => !prev)} className="flex items-center cursor-pointer">
+                                                <button type="button" onClick={() => setDesktopMenuToggle(prev => !prev)} className="flex items-center cursor-pointer group-hover:text-prim-btn/40 hover:text-prim-btn! transition-colors duration-300">
                                                     {l.title}
                                                     <div className={`${desktopMenuToggle && 'rotate-180'} transition-transform duration-300`}>
                                                         <ArrowDropDownIcon />
@@ -239,17 +240,17 @@ function Header() {
                                                     <div className="bg-white rounded-xl shadow-2xl p-6 pt-8 flex items-start gap-4 w-full">
                                                         <div className="left flex w-1/2 gap-8">
                                                             {dropdownMenu.map((dl) => (
-                                                                <div key={dl.id} className="flex flex-col flex-1 gap-3">
+                                                                <div key={dl.id} className="flex flex-col flex-1 gap-3 ">
                                                                     <div className="leading-3 text-[10px] font-medium text-prim-btn">
                                                                         {dl.title.toUpperCase()}
                                                                     </div>
-                                                                    <div className="flex flex-col gap-2">
+                                                                    <div className="flex flex-col gap-2 group/drop">
                                                                         {dl.list?.map((li) => (
                                                                             <Link
                                                                                 href={li.href}
                                                                                 key={li.id}
                                                                                 onClick={closeDesktopMenuNow}
-                                                                                className="leading-6 text-base cursor-pointer hover:text-prim-btn transition-colors"
+                                                                                className="leading-6 text-base cursor-pointer group-hover/drop:text-prim-btn/40 hover:text-prim-btn! transition-colors duration-300"
                                                                             >
                                                                                 {li.label}
                                                                             </Link>
@@ -275,7 +276,7 @@ function Header() {
                                     return (
                                         <div
                                             key={l.id}
-                                            className={`transition-opacity duration-300 ${desktopMenuToggle ? 'opacity-40' : ''}`}
+                                            className={`transition-opacity duration-300 ${desktopMenuToggle ? 'text-prim-btn/60' : ''} leading-7 text-sm font-medium group-hover:text-prim-btn/40 hover:text-prim-btn! transition-colors duration-300`}
                                         >
                                             <Link href={l.href}>{l.title}</Link>
                                         </div>
@@ -287,9 +288,9 @@ function Header() {
                             <img src="https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69833e435f55c34294a79a9a_Caladan%E2%84%A2.svg" alt="" className="h-full w-auto" />
                         </div>
                         <div className="flex items-center gap-4">
-                            <div className="whitespace-nowrap text-sm leading-6 font-medium underline underline-offset-4">
+                            <Link href='/resorts' className="whitespace-nowrap text-sm leading-6 font-medium underline underline-offset-4">
                                 View Resorts
-                            </div>
+                            </Link>
                             <Link href='/book-inquiry'>
                                 <Button label="Book Now" bg="prim" />
                             </Link>

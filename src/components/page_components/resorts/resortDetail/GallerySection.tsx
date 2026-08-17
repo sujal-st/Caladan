@@ -4,7 +4,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useRef } from "react";
 
-import {gsap,useGSAP,ScrollTrigger} from '@/llib/gsap';
+import {gsap,useGSAP} from '@/llib/gsap';
 
 function GallerySection() {
   const scrollRef= useRef<HTMLDivElement|null>(null);

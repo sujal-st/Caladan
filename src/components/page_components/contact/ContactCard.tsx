@@ -2,12 +2,9 @@
 import TitlePill from "@/components/common/TitlePill"
 import TextInput, { DropDown } from "../inquiry/TextInput"
 import CheckBox from "../inquiry/CheckBox"
-
-import { useRef } from "react";
 import { useCardAnimation } from "@/llib/useCardAnimation";
 
 function ContactCard() {
-    const sectionRef = useRef<HTMLElement|null>(null);
 
     useCardAnimation('.form-card');
     return (
