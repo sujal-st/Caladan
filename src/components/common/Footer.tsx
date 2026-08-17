@@ -35,7 +35,7 @@ function Footer() {
         {
             id: '2', title: "other pages", list: [
                 { id: "1", label: "Resorts" ,href:'/resorts'},
-                { id: "2", label: "Resort Details" ,href:'/resorts/1'},
+                { id: "2", label: "Resort Details" ,href:'/resorts/reef-whisper-suite'},
                 { id: "3", label: "Gallery" ,href:'/gallery'},
                 { id: "4", label: "Blogs" ,href:'/blogs'},
             ]
