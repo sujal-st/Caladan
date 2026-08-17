@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     rel: 'preload',
     as: 'image',
     href: '/hero-section-vid-frame.avif',
-    fetchpriority: 'high', // Tells browser this is an LCP priority
+    fetchpriority: 'high',
   },
 };
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -23,16 +23,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${interDisplay.variable} ${interDisplay.className} ${plexMono.variable} antialiased`}
     >
       <body className="relative">
-        {/* <div id="smooth-wrapper"> */}
-        {/* <div id="smooth-content"> */}
+
         <AppRouterCacheProvider>
           <Header />
           {children}
           <Footer />
         </AppRouterCacheProvider>
-        {/* </div> */}
-        {/* </div> */}
-        {/* <Script src="https://kit.fontawesome.com/419fbaad31.js" crossOrigin="anonymous" /> */}
+
       </body>
     </html>
   );

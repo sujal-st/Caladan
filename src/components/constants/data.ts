@@ -47,68 +47,6 @@ export const resorts: resort[] = [
         guests: 8,
     },
 ]
-
-
-export const reviews = [
-    {
-        id: '1', name: 'Daniel Novak', profession: 'Adventure Seeker', review: {
-            title: 'The lagoon reset we needed',
-            description: "Our family actually unplugged here. The kids loved the sound bath and we all left lighter, calmer, and more connected than we've felt in years."
-        },
-        img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69ac6f71e2f6cf6c0843aa68_pexels-julia-volk-7292958.avif'
-    },
-    {
-        id: '2', name: 'Lea Martinez', profession: 'Family Traveler', review: {
-            title: 'Finally, wellness that feels natural',
-            description: "Caladan is pure paradise. Every sunrise felt like a painting, and the staff made us feel at home from the first moment."
-        },
-        img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69ac691927961ac98c560fe2_pexels-stephanlouis-19119918.avif'
-    },
-    {
-        id: '3', name: 'Hana Saito', profession: 'Solo Retreat Guest', review: {
-            title: 'A sanctuary above the reef',
-            description: "I arrived exhausted and left renewed. The lomilomi massage and sunrise sessions over the lagoon helped me release stress I'd carried for months."
-        },
-        img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69ac6f718869ff1791ce4e94_pexels-aymannouas-12935961.avif'
-    },
-]
-
-export const tabData = [
-    {
-        id: '1', title: 'Software', list: [
-            { id: "1", title: "What makes Caladan different from other beach resorts?", description: "Add answer here." },
-            { id: "2", title: "Do you offer all-inclusive vacation packages?", description: "Add answer here." },
-            { id: "3", title: "What activities are available at the resort?", description: "Add answer here." },
-            { id: "4", title: "Do you accommodate special dietary needs?", description: "Add answer here." },
-            { id: "5", title: "Can I host events or weddings at Caladan?", description: "Add answer here." },
-            { id: "6", title: "What payment methods do you accept?", description: "Add answer here." },
-            { id: "7", title: "Is there free Wi-Fi at Caladan?", description: "Add answer here." },
-        ]
-    },
-    {
-        id: '2', title: 'Integration', list: [
-            { id: "1", title: "What makes Caladan different from other beach resorts?", description: "Add answer here." },
-            { id: "2", title: "Do you offer all-inclusive vacation packages?", description: "Add answer here." },
-            { id: "3", title: "What activities are available at the resort?", description: "Add answer here." },
-            { id: "4", title: "Do you accommodate special dietary needs?", description: "Add answer here." },
-            { id: "5", title: "Can I host events or weddings at Caladan?", description: "Add answer here." },
-            { id: "6", title: "What payment methods do you accept?", description: "Add answer here." },
-            { id: "7", title: "Is there free Wi-Fi at Caladan?", description: "Add answer here." },
-        ]
-    },
-    {
-        id: '3', title: 'Pricing', list: [
-            { id: "1", title: "What makes Caladan different from other beach resorts?", description: "Add answer here." },
-            { id: "2", title: "Do you offer all-inclusive vacation packages?", description: "Add answer here." },
-            { id: "3", title: "What activities are available at the resort?", description: "Add answer here." },
-            { id: "4", title: "Do you accommodate special dietary needs?", description: "Add answer here." },
-            { id: "5", title: "Can I host events or weddings at Caladan?", description: "Add answer here." },
-            { id: "6", title: "What payment methods do you accept?", description: "Add answer here." },
-            { id: "7", title: "Is there free Wi-Fi at Caladan?", description: "Add answer here." },
-        ]
-    },
-]
-
 export const blogs: blog[] = [
     {
         id: "1",
@@ -203,6 +141,68 @@ export const blogs: blog[] = [
     }
 
 ];
+
+export const reviews = [
+    {
+        id: '1', name: 'Daniel Novak', profession: 'Adventure Seeker', review: {
+            title: 'The lagoon reset we needed',
+            description: "Our family actually unplugged here. The kids loved the sound bath and we all left lighter, calmer, and more connected than we've felt in years."
+        },
+        img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69ac6f71e2f6cf6c0843aa68_pexels-julia-volk-7292958.avif'
+    },
+    {
+        id: '2', name: 'Lea Martinez', profession: 'Family Traveler', review: {
+            title: 'Finally, wellness that feels natural',
+            description: "Caladan is pure paradise. Every sunrise felt like a painting, and the staff made us feel at home from the first moment."
+        },
+        img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69ac691927961ac98c560fe2_pexels-stephanlouis-19119918.avif'
+    },
+    {
+        id: '3', name: 'Hana Saito', profession: 'Solo Retreat Guest', review: {
+            title: 'A sanctuary above the reef',
+            description: "I arrived exhausted and left renewed. The lomilomi massage and sunrise sessions over the lagoon helped me release stress I'd carried for months."
+        },
+        img: 'https://cdn.prod.website-files.com/69833b76e5b4bee55e873012/69ac6f718869ff1791ce4e94_pexels-aymannouas-12935961.avif'
+    },
+]
+
+export const tabData = [
+    {
+        id: '1', title: 'Software', list: [
+            { id: "1", title: "What makes Caladan different from other beach resorts?", description: "Add answer here." },
+            { id: "2", title: "Do you offer all-inclusive vacation packages?", description: "Add answer here." },
+            { id: "3", title: "What activities are available at the resort?", description: "Add answer here." },
+            { id: "4", title: "Do you accommodate special dietary needs?", description: "Add answer here." },
+            { id: "5", title: "Can I host events or weddings at Caladan?", description: "Add answer here." },
+            { id: "6", title: "What payment methods do you accept?", description: "Add answer here." },
+            { id: "7", title: "Is there free Wi-Fi at Caladan?", description: "Add answer here." },
+        ]
+    },
+    {
+        id: '2', title: 'Integration', list: [
+            { id: "1", title: "What makes Caladan different from other beach resorts?", description: "Add answer here." },
+            { id: "2", title: "Do you offer all-inclusive vacation packages?", description: "Add answer here." },
+            { id: "3", title: "What activities are available at the resort?", description: "Add answer here." },
+            { id: "4", title: "Do you accommodate special dietary needs?", description: "Add answer here." },
+            { id: "5", title: "Can I host events or weddings at Caladan?", description: "Add answer here." },
+            { id: "6", title: "What payment methods do you accept?", description: "Add answer here." },
+            { id: "7", title: "Is there free Wi-Fi at Caladan?", description: "Add answer here." },
+        ]
+    },
+    {
+        id: '3', title: 'Pricing', list: [
+            { id: "1", title: "What makes Caladan different from other beach resorts?", description: "Add answer here." },
+            { id: "2", title: "Do you offer all-inclusive vacation packages?", description: "Add answer here." },
+            { id: "3", title: "What activities are available at the resort?", description: "Add answer here." },
+            { id: "4", title: "Do you accommodate special dietary needs?", description: "Add answer here." },
+            { id: "5", title: "Can I host events or weddings at Caladan?", description: "Add answer here." },
+            { id: "6", title: "What payment methods do you accept?", description: "Add answer here." },
+            { id: "7", title: "Is there free Wi-Fi at Caladan?", description: "Add answer here." },
+        ]
+    },
+]
+
+
 
 // faq list
 export const list = [
