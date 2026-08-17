@@ -1,4 +1,3 @@
-import { client } from "@/sanity/lib/client";
 import { blog } from "@/components/constants/types";
 import { sanityFetch } from "@/sanity/lib/live";
 
@@ -16,5 +15,5 @@ const resort_query = `*[_type == "blog"]|order(date desc){
 export default async function getBlogs() {
     const {data:blogs} = await sanityFetch({query:resort_query});
 
-    return blogs
+    return blogs as blog[]
 }

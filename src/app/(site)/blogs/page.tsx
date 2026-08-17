@@ -1,4 +1,3 @@
-import { blog } from "@/components/constants/types"
 import BlogGrid from "@/components/page_components/blogs/BlogGrid"
 import RecentArticles from "@/components/page_components/blogs/RecentArticles"
 import CTASection from "@/components/page_components/home/CTASection"
@@ -6,7 +5,7 @@ import getBlogs from "@/llib/api/getBlogs"
 
 
 async function page() {
-    const blogs:blog[] = await getBlogs();
+    const blogs = await getBlogs();
     return (
         <>
             <BlogGrid blogs={blogs}/>
