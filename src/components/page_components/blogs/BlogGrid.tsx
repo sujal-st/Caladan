@@ -1,7 +1,6 @@
 'use client'
 import TitlePill from '@/components/common/TitlePill';
 import Image from 'next/image';
-import { blogs } from '@/components/constants/data';
 import type { blog } from '@/components/constants/types';
 import Link from 'next/link';
 import { useTitleAnimation } from '@/llib/useTitleAnimation';
@@ -39,11 +38,12 @@ function BlogCard({ blog }: BlogCardProps) {
     )
 }
 
-function BlogGrid() {
+function BlogGrid({blogs}:{blogs:blog[]}) {
     const sectionRef=useRef<HTMLElement|null>(null);
     const titleRef=useRef<HTMLDivElement|null>(null);
 
-    useTitleAnimation(titleRef,'.container')
+
+    useTitleAnimation(titleRef,'.container');
     return (
         <section className='pt-24 pb-6 px-4 md:px-8 md:pt-40 md:pb-8' ref={sectionRef}>
             <div className='md:max-w-full mx-auto container' ref={titleRef}>
@@ -95,7 +95,7 @@ function BlogGrid() {
                     <div className='flex flex-col gap-3 md:gap-4'>
 
                         {blogs.map((b) => (
-                            <BlogCard key={b.id} blog={b} />
+                            <BlogCard key={b._id} blog={b} />
                         )).slice(0,3)}
 
                     </div>

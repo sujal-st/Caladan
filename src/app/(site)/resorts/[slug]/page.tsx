@@ -1,14 +1,12 @@
 import { notFound } from "next/navigation";
-import { resorts } from '@/components/constants/data';
+import getResort from "@/llib/api/getSingleResort";
 import TopSection from '@/components/page_components/resorts/resortDetail/TopSection';
 import MoreAccomodation from "@/components/page_components/resorts/resortDetail/MoreAccomodation";
+import { resort } from "@/components/page_components/home/ReefSection";
 
 async function ResortDetailPage({params}:PageProps<'/resorts/[slug]'>) {
   const {slug}=await params;
-  const resort= resorts.find((r)=>r.slug===slug);
-
-  if(!resort)
-    notFound();
+  const resort:resort = await getResort(slug);
 
   return (
     <>

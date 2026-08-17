@@ -1,6 +1,7 @@
-import React from 'react'
+
 import type { BlogCardProps } from '../BlogGrid'
 import TitlePill from '@/components/common/TitlePill'
+import { urlFor } from '@/sanity/lib/image'
 import Image from 'next/image'
 
 function BlogDetailSection({ blog }: BlogCardProps) {
@@ -24,7 +25,7 @@ function BlogDetailSection({ blog }: BlogCardProps) {
                 {/* thumbnail */}
                 <div className='relative h-125 rounded-lg overflow-hidden'>
                     <div className='bg-prim-btn/50 absolute inset-0 -z-1'></div>
-                    <Image src={blog.img} alt={blog.title} sizes='(max-width:767px) 704px, (max-width:1023px) 960px' fill className='object-cover -z-2' loading='eager' />
+                    <Image src={urlFor(blog.img).width(800).height(600).url()} alt={blog.title} sizes='(max-width:767px) 704px, (max-width:1023px) 960px' fill className='object-cover -z-2' loading='eager' />
 
                     <div className='p-6 flex items-end h-full md:p-8'>
                         <div className='flex gap-3 md:justify-between md:items-end md:w-full'>
@@ -39,9 +40,9 @@ function BlogDetailSection({ blog }: BlogCardProps) {
                             </div>
 
                             <div className="details_blog text-white flex justify-start flex-wrap leading-5 text-base md:leading-6">
-                                <div className='whitespace-nowrap'>March 12, 2026</div>
+                                <div className='whitespace-nowrap'>{blog.date}</div>
                                 <div>•</div>
-                                <div>8 min read</div>
+                                <div>{blog.time}</div>
                             </div>
 
                         </div>

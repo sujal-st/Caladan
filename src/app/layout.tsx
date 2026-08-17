@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { interDisplay, plexMono } from "@/llib/font";
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import Header from "@/components/common/Header";
-import Footer from "@/components/common/Footer";
+import { SanityLive } from "@/sanity/lib/live";
+
 
 
 export const metadata: Metadata = {
@@ -25,11 +25,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="relative">
 
         <AppRouterCacheProvider>
-          <Header />
           {children}
-          <Footer />
         </AppRouterCacheProvider>
-
+        <SanityLive/>
       </body>
     </html>
   );
