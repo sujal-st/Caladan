@@ -7,6 +7,7 @@ export interface resort {
     slug: string;
     img: string;
     title: string;
+    description: string;
     cat: string;
     size: string;
     beds: number;

@@ -138,11 +138,11 @@ function TopSection({ resort }: TopImageProps) {
 
                     <div className="flex flex-col gap-5">
                         <div>
-                            <h1 className="text-[32px] leading-9 md:text-[40px] md:leading-11 text-prim-btn">Reef Whisper Suite</h1>
+                            <h1 className="text-[32px] leading-9 md:text-[40px] md:leading-11 text-prim-btn">{resort!.title}</h1>
                         </div>
 
                         <div className="text-prim-btn/60 leading-5 text-base md:leading-6">
-                            <p>Glass-floor haven for couples, floating above turtle paths. Private yoga deck catches dawn light, while your personal lomilomi table overlooks sleeping parrotfish. Intimate luxury where the sea whispers renewal.</p>
+                            <p>{resort!.description}</p>
                         </div>
 
                     </div>
