@@ -10,6 +10,7 @@ import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import { gsap, useGSAP } from '@/llib/gsap';
 import type { ResortCardProps } from "./ReefSection";
+import { urlFor } from "@/sanity/lib/image";
 
 export function ResortCard({ resort }: ResortCardProps) {
     useGSAP(() => {
@@ -31,7 +32,7 @@ export function ResortCard({ resort }: ResortCardProps) {
             {/* img */}
             <div className=" relative h-64 max-h-64 rounded-2xl overflow-hidden md:max-h-96 md:h-96">
                 <div className="relative h-full w-full resort-img-container">
-                    <Image src={resort.img} alt={resort.title} fill loading="eager" sizes="(max-width: 425px) 420px, (max-width: 767px) 632px, (max-width: 1023px) 238px, 439px" className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300 ease-in-out" />
+                    <Image src={urlFor(resort.img).width(800).height(600).url()} alt={resort.title} fill loading="eager" sizes="(max-width: 425px) 420px, (max-width: 767px) 632px, (max-width: 1023px) 238px, 439px" className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300 ease-in-out" />
                 </div>
                 <div className="absolute top-5 left-5 z-11 md:top-6 md:left-6">
                     <TitlePill label={resort.cat} type="card-label" />

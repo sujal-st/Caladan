@@ -13,7 +13,7 @@ export interface review {
 }
 
 export interface blog {
-    id: string;
+    _id: string;
     slug: string;
     date: string;
     time: string;

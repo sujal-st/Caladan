@@ -8,6 +8,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 import { gsap, useGSAP } from '@/llib/gsap';
 import { useRef, useState, useEffect } from "react";
+import { urlFor } from "@/sanity/lib/image";
 
 
 interface TopImageProps {
@@ -59,7 +60,7 @@ function TopImage({ resort }: TopImageProps) {
 
     return (
         <div className="relative min-h-80 min-w-98.25 overflow-hidden rounded-lg p-5 h-full md:w-full" ref={sectionRef}>
-            <Image src={resort.img} alt={resort.title} sizes="(max-width: 768px) 100vw, 704px" fill className="object-cover h-full w-full -z-1 img" />
+            <Image src={urlFor(resort.img).width(800).height(600).url()} alt={resort.title} sizes="(max-width: 768px) 100vw, 704px" fill className="object-cover h-full w-full -z-1 img" />
             <div className="absolute inset-0 h-full flex flex-col justify-between p-5 md:flex-row md:items-end">
                 <TitlePill label={resort.cat} />
 

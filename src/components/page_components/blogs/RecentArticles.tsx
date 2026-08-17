@@ -1,13 +1,15 @@
 'use client'
 import HeadingText from "@/components/common/HeadingText"
 import TitlePill from "@/components/common/TitlePill"
-import Image from "next/image"
-import { blogs } from "@/components/constants/data"
+import Image from "next/image";
 import { BlogCardProps } from "./BlogGrid";
 import Link from "next/link";
 import { useRef } from "react";
 import { useTitleAnimation } from "@/llib/useTitleAnimation";
 import {gsap,useGSAP} from '@/llib/gsap';
+import type { blog } from "@/components/constants/types";
+import getBlogs from "@/llib/api/getBlogs";
+import { urlFor } from "@/sanity/lib/image";
 
 export function BlogArticleCard({ blog }: BlogCardProps) {
     return (
@@ -16,7 +18,7 @@ export function BlogArticleCard({ blog }: BlogCardProps) {
                 <div className="absolute inset-0 z-2 left-3 top-3">
                     <TitlePill label="tahiti insider" />
                 </div>
-                <Image src={blog.img} alt={blog.title} sizes="(max-width:767px) 344px, (max-width:1023px) 309px" fill className="object-cover image" loading={`${blog.slug==='best-honeymoon-packages-in-tahiti'?"eager":'lazy'}`} />
+                <Image src={urlFor(blog.img).width(800).height(600).url()} alt={blog.title} sizes="(max-width:767px) 344px, (max-width:1023px) 309px" fill className="object-cover image" loading={`${blog.slug==='best-honeymoon-packages-in-tahiti'?"eager":'lazy'}`} />
             </div>
 
             <div className="flex flex-col gap-3">
@@ -40,7 +42,7 @@ export function BlogArticleCard({ blog }: BlogCardProps) {
     )
 }
 
-function RecentArticles() {
+function RecentArticles({blogs}:{blogs:blog[]}) {
     const sectionRef= useRef<HTMLElement|null>(null);
     const titleRef=useRef<HTMLDivElement|null>(null);
 
@@ -76,7 +78,7 @@ function RecentArticles() {
                 {/* card */}
                 <div className="grid grid-cols-1 self-start md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-8 md:gap-x-4 md:gap-y-12">
                     {blogs.map((blog) => (
-                        <BlogArticleCard key={blog.id} blog={blog}/>
+                        <BlogArticleCard key={blog._id} blog={blog}/>
                     ))}
                 </div>
             </div>
